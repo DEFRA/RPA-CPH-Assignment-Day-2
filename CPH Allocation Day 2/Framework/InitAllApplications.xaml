@@ -99,9 +99,12 @@
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1257.6000000000001,2114" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1272.8,2114" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -109,7 +112,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="1022,175.6" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening applications...&quot;]" />
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Sign In" sap:VirtualizedContainerService.HintSize="1022,1884" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="333d78ff-494e-40e5-a858-8a6690f13828" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Sign In" sap:VirtualizedContainerService.HintSize="1022,1884" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" OutUiElement="[g_URLSpirit]" ScopeGuid="333d78ff-494e-40e5-a858-8a6690f13828" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -146,7 +149,7 @@
                 </Sequence>
               </uix:NCheckState.IfNotExists>
               <uix:NCheckState.Target>
-                <uix:TargetAnchorable BrowserURL="https://spirit.app.defra.gov.uk/cph/" CVScreenId="b8cf820d-0647-4deb-8d2f-86a328fa541e" CvTextArea="920, 2247, 97, 27" CvTextArgument="DEFRA Entra ID" CvType="Text" DesignTimeRectangle="904, 2239, 305, 45" DesignTimeScaleFactor="2.5" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div' parentid='loginComponents' tabindex='0' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='loginComponents' tabindex='0' tag='DIV' class='btn btn-fill pointer js-entpanel entpanel' aaname='                      ' check:innerText='DEFRA Entra ID' /&gt;" Guid="e93d14c6-b7ef-438b-abc6-78feaec4365f" ScopeSelectorArgument="&lt;html app='msedge.exe' title='spirit-cph' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete">
+                <uix:TargetAnchorable BrowserURL="https://spirit.app.defra.gov.uk/cph/" CVScreenId="b8cf820d-0647-4deb-8d2f-86a328fa541e" CvTextArea="920, 2247, 97, 27" CvTextArgument="DEFRA Entra ID" CvType="Text" DesignTimeRectangle="904, 2239, 305, 45" DesignTimeScaleFactor="2.5" FriendlyName="'DIV'" FullSelectorArgument="&lt;html app='msedge.exe' title='Sign In' /&gt;&lt;webctrl id='user_username' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='loginComponents' tabindex='0' tag='DIV' class='btn btn-fill pointer js-entpanel entpanel' aaname='                      ' check:innerText='DEFRA Entra ID' /&gt;" Guid="e93d14c6-b7ef-438b-abc6-78feaec4365f" ScopeSelectorArgument="&lt;html app='msedge.exe' title='spirit-cph' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete">
                   <uix:TargetAnchorable.Anchors>
                     <scg:List x:TypeArguments="uix:ITarget" Capacity="0" />
                   </uix:TargetAnchorable.Anchors>
@@ -175,7 +178,7 @@
                 </Sequence>
               </uix:NCheckState.IfNotExists>
               <uix:NCheckState.Target>
-                <uix:TargetAnchorable BrowserURL="https://spirit.app.defra.gov.uk/cph/" CVScreenId="b8cf820d-0647-4deb-8d2f-86a328fa541e" CvTextArea="920, 2247, 97, 27" CvTextArgument="100 mi" CvType="Text" DesignTimeRectangle="904, 2239, 305, 45" DesignTimeScaleFactor="2.5" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' isleaf='1' parentid='widget_34' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' isleaf='1' parentid='widget_34' tag='DIV' class='esri-scale-bar__line esri-scale-bar__line--bottom' aaname='' /&gt;" Guid="e93d14c6-b7ef-438b-abc6-78feaec4365f" InformativeScreenshot="ab75f031deacad5607285771d002f3fb.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='spirit-cph' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                <uix:TargetAnchorable BrowserURL="https://spirit.app.defra.gov.uk/cph/" CVScreenId="b8cf820d-0647-4deb-8d2f-86a328fa541e" CvTextArea="920, 2247, 97, 27" CvTextArgument="100 mi" CvType="Text" DesignTimeRectangle="904, 2239, 305, 45" DesignTimeScaleFactor="2.5" FriendlyName="'DIV'" FullSelectorArgument="&lt;html app='msedge.exe' title='spirit-cph' /&gt;&lt;webctrl class='esri-layer-list__item-content' tag='DIV' aaname='APHA and Land Data' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' isleaf='1' parentid='widget_34' tag='DIV' class='esri-scale-bar__line esri-scale-bar__line--bottom' aaname='' /&gt;" Guid="e93d14c6-b7ef-438b-abc6-78feaec4365f" InformativeScreenshot="ab75f031deacad5607285771d002f3fb.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='spirit-cph' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
               </uix:NCheckState.Target>
             </uix:NCheckState>
             <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Expand Admin Boundaries" sap:VirtualizedContainerService.HintSize="954,190" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="333d78ff-494e-40e5-a858-8a6690f13828" Version="V3">

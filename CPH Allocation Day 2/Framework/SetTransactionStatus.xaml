@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SetTransactionStatus" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:d="clr-namespace:DRACOE_Logging_64;assembly=DRACOE.Logging.64" xmlns:d1="clr-namespace:DRACOE_PopUps_64;assembly=DRACOE.PopUps.64" xmlns:de="clr-namespace:DRACOE_Microsoft_Graph_64.Exchange;assembly=DRACOE Microsoft Graph 64" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Diagnostics;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SetTransactionStatus" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:d="clr-namespace:DRACOE_Logging_64;assembly=DRACOE.Logging.64" xmlns:d1="clr-namespace:DRACOE_PopUps_64;assembly=DRACOE.PopUps.64" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Diagnostics;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Exception variable that is used during transitions between states and represents a situation that does not conform to the rules of the process being automated." Name="in_BusinessException" Type="InArgument(ui:BusinessRuleException)" />
     <x:Property sap2010:Annotation.AnnotationText="Datetime that the current transaction started processing" Name="in_dateCaseStartTime" Type="InArgument(s:DateTime)" />
@@ -73,6 +73,13 @@
       <x:String>UiPath.Web</x:String>
       <x:String>UiPath.Web.Activities</x:String>
       <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -172,9 +179,12 @@
       <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart sap2010:Annotation.AnnotationText="Set and log the transaction's status along with extra log fields. &#xA;There can be three possible statuses: Success, Business Exception and System Exception.&#xA;&#xA;Business Rule Exception characterizes an irregular situation according to the process's rules and prevents the transaction to be processed. The transaction is not retried in this case, since the result will be the same until the problem that causes the exception is solved.&#xA;For example, it can be considered a BusinessRuleException if a process expects to read an email's attachment, but the sender didn't attach any file. In this case, immediate retries of the transaction will not yield a different result.&#xA;&#xA;On the other hand, system exceptions are characterized by exceptions whose types are different than BusinessRuleException. When this kind of exception happens, the transaction item can be retried after closing and reopening the applications involved in the process. The rationale behind this is that the exception was caused by a problem in the applications, which might be solved by restarting them.&#xA;&#xA;If Orchestrator queues are the source of transactions, the Set Transaction Status activity is used to update the status. In addition, the retry mechanism is also implemented by Orchestrator.&#xA;&#xA;If Orchestrator queues are not used, the status can be set, for example, by writing to a specific column in a spreadsheet. In such cases, the retry mechanism is covered by the framework and the number of retries is defined in the configuration file.&#xA;&#xA;At the end, io_TransactionNumber is incremented, which makes the framework get the next transaction to be processed." DisplayName="Set Transaction Status" sap:VirtualizedContainerService.HintSize="1468.8000000000002,658.84" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+  <Flowchart sap2010:Annotation.AnnotationText="Set and log the transaction's status along with extra log fields. &#xA;There can be three possible statuses: Success, Business Exception and System Exception.&#xA;&#xA;Business Rule Exception characterizes an irregular situation according to the process's rules and prevents the transaction to be processed. The transaction is not retried in this case, since the result will be the same until the problem that causes the exception is solved.&#xA;For example, it can be considered a BusinessRuleException if a process expects to read an email's attachment, but the sender didn't attach any file. In this case, immediate retries of the transaction will not yield a different result.&#xA;&#xA;On the other hand, system exceptions are characterized by exceptions whose types are different than BusinessRuleException. When this kind of exception happens, the transaction item can be retried after closing and reopening the applications involved in the process. The rationale behind this is that the exception was caused by a problem in the applications, which might be solved by restarting them.&#xA;&#xA;If Orchestrator queues are the source of transactions, the Set Transaction Status activity is used to update the status. In addition, the retry mechanism is also implemented by Orchestrator.&#xA;&#xA;If Orchestrator queues are not used, the status can be set, for example, by writing to a specific column in a spreadsheet. In such cases, the retry mechanism is covered by the framework and the number of retries is defined in the configuration file.&#xA;&#xA;At the end, io_TransactionNumber is incremented, which makes the framework get the next transaction to be processed." DisplayName="Set Transaction Status" sap:VirtualizedContainerService.HintSize="1290,778.84" sap2010:WorkflowViewState.IdRef="Flowchart_2">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="strLogNote" />
     </Flowchart.Variables>
@@ -213,7 +223,7 @@
               <av:Point x:Key="AnnotationLocation">90,350</av:Point>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence sap2010:Annotation.AnnotationText="If the transaction item is processed without any exception, its status is updated as Successful and the email is moved to the Success subfolder." DisplayName="Success" sap:VirtualizedContainerService.HintSize="484,1719.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <Sequence sap2010:Annotation.AnnotationText="If the transaction item is processed without any exception, its status is updated as Successful and the email is moved to the Success subfolder." DisplayName="Success" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -222,40 +232,12 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,175.6" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Transaction Successful&quot;]" />
-            <If sap2010:Annotation.AnnotationText="Remove this and add CompletedID asset to Orchestrator for improved speed." Condition="[not g_Config.ContainsKey(&quot;CompletedID&quot;)]" DisplayName="If &quot;Completed&quot; ID not already retrieved" sap:VirtualizedContainerService.HintSize="450,572.4" sap2010:WorkflowViewState.IdRef="If_15">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,331.6" sap2010:WorkflowViewState.IdRef="Sequence_45">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <de:Get_Folder_ID DisplayName="Get &quot;Completed&quot; folder ID" sap:VirtualizedContainerService.HintSize="382,271.6" sap2010:WorkflowViewState.IdRef="Get_Folder_ID_3" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strFolderPath="[g_Config(&quot;Completed&quot;).ToString]" out_strFolderID="[g_Config(&quot;CompletedID&quot;)]" />
-                </Sequence>
-              </If.Then>
-              <If.Else>
-                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_46">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </Sequence>
-              </If.Else>
-            </If>
-            <de:Move_Email DisplayName="Move Email to &quot;Completed&quot;" sap:VirtualizedContainerService.HintSize="450,280.4" sap2010:WorkflowViewState.IdRef="Move_Email_1" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strEmailID="[g_TransactionItem(&quot;EmailID&quot;).ToString]" in_strNewFolderID="[g_Config(&quot;CompletedID&quot;).ToString]" />
             <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="450,168.8" sap2010:WorkflowViewState.IdRef="InvokeMethod_8" MethodName="Stop">
               <InvokeMethod.TargetObject>
                 <InArgument x:TypeArguments="sd:Stopwatch">[g_swProcessingTimer]</InArgument>
               </InvokeMethod.TargetObject>
             </InvokeMethod>
-            <d:LogTransaction sap:VirtualizedContainerService.HintSize="450,56.8" IN_dateEndDateTime="[Now]" IN_dateStartDateTime="[in_dateCaseStartTime]" IN_intExitPoint="-1" IN_strFileName="[g_Config(&quot;SQLTransactionLogFilepath&quot;).ToString]" IN_strOutcome="Success" IN_strTotalTime="[(Math.Round(g_swProcessingTimer.Elapsed.TotalSeconds, 2)).ToString]" IN_strTransactionID="[String.Join(&quot;, &quot;, g_arrCaseID.Where(Function(s) not String.IsNullOrEmpty(s)))]" IN_strUser="[g_Config(&quot;Username&quot;).ToString]" IN_strVersion="[g_Config(&quot;WorkPackageVersion&quot;).ToString]" IN_strWorkPackage="[g_Config(&quot;WorkPackageID&quot;).ToString]" sap2010:WorkflowViewState.IdRef="LogTransaction_1">
+            <d:LogTransaction sap:VirtualizedContainerService.HintSize="450,56.8" IN_dateEndDateTime="[Now]" IN_dateStartDateTime="[in_dateCaseStartTime]" IN_intExitPoint="-1" IN_strFileName="[g_Config(&quot;File Path - SQL Log&quot;).ToString]" IN_strOutcome="Success" IN_strTotalTime="[(Math.Round(g_swProcessingTimer.Elapsed.TotalSeconds, 2)).ToString]" IN_strTransactionID="[String.Join(&quot;, &quot;, g_arrCaseID.Where(Function(s) not String.IsNullOrEmpty(s)))]" IN_strUser="[g_Config(&quot;Username&quot;).ToString]" IN_strVersion="[g_Config(&quot;Logging - Work Package Version&quot;).ToString]" IN_strWorkPackage="[g_Config(&quot;Logging - Work Package ID&quot;).ToString]" sap2010:WorkflowViewState.IdRef="LogTransaction_1">
               <d:LogTransaction.IN_strMiscNotes>
                 <InArgument x:TypeArguments="x:String">
                   <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
@@ -284,7 +266,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <d:Log_Case DisplayName="Log Case - Local file" sap:VirtualizedContainerService.HintSize="382,48" IN_dateCaseEndTime="[Now]" IN_dateCaseStartTime="[in_dateCaseStartTime]" IN_dateCaseTotalTime="[(Now - in_dateCaseStartTime).ToString]" IN_strCaseID="[String.Join(&quot;, &quot;, g_arrCaseID.Where(Function(s) not String.IsNullOrEmpty(s)))]" IN_strFilePath="[in_strWorkLogFilepath]" IN_strOutcome="Success" IN_strUser="[g_Config(&quot;Username&quot;).ToString]" IN_strWorkpackageName="[g_Config(&quot;BusinessProcessName&quot;).ToString]" sap2010:WorkflowViewState.IdRef="Log_Case_1" in_dblCaseProcessingTime="[Math.Round(g_swProcessingTimer.Elapsed.TotalSeconds, 2)]">
+                  <d:Log_Case DisplayName="Log Case - Local file" sap:VirtualizedContainerService.HintSize="382,48" IN_dateCaseEndTime="[Now]" IN_dateCaseStartTime="[in_dateCaseStartTime]" IN_dateCaseTotalTime="[(Now - in_dateCaseStartTime).ToString]" IN_strCaseID="[String.Join(&quot;, &quot;, g_arrCaseID.Where(Function(s) not String.IsNullOrEmpty(s)))]" IN_strFilePath="[in_strWorkLogFilepath]" IN_strOutcome="Success" IN_strUser="[g_Config(&quot;Username&quot;).ToString]" IN_strWorkpackageName="[g_Config(&quot;Logging - Business Process Name&quot;).ToString]" sap2010:WorkflowViewState.IdRef="Log_Case_1" in_dblCaseProcessingTime="[Math.Round(g_swProcessingTimer.Elapsed.TotalSeconds, 2)]">
                     <d:Log_Case.IN_strNotes>
                       <InArgument x:TypeArguments="x:String">
                         <Literal x:TypeArguments="x:String" Value="" />
@@ -388,49 +370,69 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:LogMessage DisplayName="Log Message (Business Exception)" sap:VirtualizedContainerService.HintSize="450,175.6" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Error" Message="[in_BusinessException.Message]" />
-                <If sap2010:Annotation.AnnotationText="Remove this and add ReviewID asset to Orchestrator for improved speed." Condition="[not g_Config.ContainsKey(&quot;ReviewID&quot;)]" DisplayName="If &quot;Review&quot; ID not already retrieved" sap:VirtualizedContainerService.HintSize="450,558.8" sap2010:WorkflowViewState.IdRef="If_13">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,331.6" sap2010:WorkflowViewState.IdRef="Sequence_41">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <de:Get_Folder_ID DisplayName="Get &quot;Review&quot; folder ID" sap:VirtualizedContainerService.HintSize="382,271.6" sap2010:WorkflowViewState.IdRef="Get_Folder_ID_1" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strFolderPath="[g_Config(&quot;Review&quot;).ToString]" out_strFolderID="[g_Config(&quot;ReviewID&quot;)]" />
-                    </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_42">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </Sequence>
-                  </If.Else>
-                </If>
-                <de:Move_Email DisplayName="Move Email to &quot;Review&quot; - BRE" sap:VirtualizedContainerService.HintSize="450,280.4" sap2010:WorkflowViewState.IdRef="Move_Email_2" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strEmailID="[g_TransactionItem(&quot;EmailID&quot;).ToString]" in_strNewFolderID="[g_Config(&quot;ReviewID&quot;).ToString]" />
+                <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Queue Items All Items - Dynamics 365" sap:VirtualizedContainerService.HintSize="450,1237.2" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InUiElement="[g_BrowserCRM]" InteractionMode="DebuggerApi" OpenMode="Never" OutUiElement="[g_BrowserCRM]" ScopeGuid="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V2">
+                  <uix:NApplicationCard.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,1067.2" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:String" Name="strNote" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'SummarySummary'" sap:VirtualizedContainerService.HintSize="382,190" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=a7a81caa-48db-f011-8543-7ced8d41de08" CVScreenId="32165f0d-aa7c-44d5-b517-a0fad8b39a86" CvTextArea="227, 1130, 170, 45" CvTextArgument="Summary" CvType="Text" DesignTimeRectangle="231, 1114, 174, 113" DesignTimeScaleFactor="2.5" ElementType="ListItem" FriendlyName="'SummarySummary'" FullSelectorArgument="&lt;webctrl id='tab*' tag='LI' aaname='Summary' /&gt;" FuzzySelectorArgument="&lt;webctrl id='tab*' tag='LI' aaname='Summary' type='' class='pa-bm pa-od pa-oo pa-by pa-ct pa-cm pa-op pa-ek pa-oq pa-cd pa-k pa-bf pa-or pa-cr pa-os pa-ot pa-ou pa-ov ' check:text='SummarySummary' /&gt;" Guid="87773202-ad70-4936-b38f-924fc4f8efb7" InformativeScreenshot="7ce8f75563784db103064aa33aa60402.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'CASE MAPPING'" sap:VirtualizedContainerService.HintSize="382,190" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=f1747cd8-48db-f011-8543-7ced8d41de08" CVScreenId="3ddbcb34-1bc2-4cec-88a8-71673f9a1503" CvTextArea="605, 1272, 252, 32" CvTextArgument="CASE MAPPING" CvType="Text" DesignTimeRectangle="608, 1256, 1511, 70" DesignTimeScaleFactor="2.5" ElementType="Text" FriendlyName="'CASE MAPPING'" FullSelectorArgument="&lt;webctrl tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H2' type='' class='pa-fs pa-ec pa-oi pa-ci pa-e pa-sg pa-sh ' aaname='CASE MAPPING' check:innerText='CASE MAPPING' /&gt;" Guid="da432bf8-cbc2-40da-a754-a5438097b3ff" InformativeScreenshot="7b17a74afcb17553ac694f8d070a1dda.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                        <uix:NGetText DisplayName="Get Text 'CRM GDS CPH Online'" sap:VirtualizedContainerService.HintSize="382,190" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" TextString="[g_strCaseTitle]" Version="V3">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=f1747cd8-48db-f011-8543-7ced8d41de08" CVScreenId="7cb48de3-0854-4be4-898d-3a9ad2d7b0cd" CvTextArea="1095, 2127, 342, 32" CvType="AnyWordGroup" DesignTimeRectangle="1070, 2106, 1042, 76" DesignTimeScaleFactor="2.5" ElementType="InputBox" FriendlyName="'CRM GDS CPH Online'" FullSelectorArgument="&lt;webctrl aria-label='Case Title' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Case Title' tag='INPUT' type='text' class='fui-Input__input r12stul0 ___1ukvzui f7nlbp4 f1l02sjl f1cmbuwj fly5x3f f1pivz5x' /&gt;" Guid="feb37940-8c8a-4ebb-9d84-586b155eb7e7" ImageBase64="" InformativeScreenshot="5398eaa88eac375c5a2af57fc3ad3202.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Case: Case - SLA: CRM GDS CPH Online - Dynamics 365' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                          </uix:NGetText.Target>
+                        </uix:NGetText>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'CRM GDS CPH Online' - Sys Ex" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="382,252.8" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Text="[g_strCaseTitle.replace(&quot;Robot In Progress&quot;,&quot;Robot BRE&quot;)]" Version="V3">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=f1747cd8-48db-f011-8543-7ced8d41de08" CVScreenId="7cb48de3-0854-4be4-898d-3a9ad2d7b0cd" CvTextArea="1095, 2127, 342, 32" CvTextArgument="CRM GDS CPH Online" CvType="Text" DesignTimeRectangle="1070, 2106, 1042, 76" DesignTimeScaleFactor="2.5" ElementType="InputBox" FriendlyName="'CRM GDS CPH Online'" FullSelectorArgument="&lt;webctrl aria-label='Case Title' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Case Title' tag='INPUT' type='text' class='fui-Input__input r12stul0 ___1ukvzui f7nlbp4 f1l02sjl f1cmbuwj fly5x3f f1pivz5x' aaname='CRM GDS CPH Online' /&gt;" Guid="221452d3-e5b3-4fd3-b3e5-dd18444d6285" ImageBase64="" InformativeScreenshot="ba5c4a4b4ce7a0535dced27b6d8b27c1.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Case: Case - SLA: CRM GDS CPH Online - Dynamics 365' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" />
+                          </uix:NTypeInto.Target>
+                        </uix:NTypeInto>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Save &amp; Close'" sap:VirtualizedContainerService.HintSize="382,182.8" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;pagetype=entityrecord&amp;etn=incident&amp;id=b5825a1e-48db-f011-8543-7ced8d41de08" CVScreenId="785653e0-0b1a-4a3f-b342-b0f49e1bf6b6" CvTextArea="2250, 455, 207, 35" CvTextArgument="Save &amp; Close" CvType="Text" DesignTimeRectangle="2255, 447, 202, 53" DesignTimeScaleFactor="2.5" ElementType="Text" FriendlyName="'Save &amp; Close'" FullSelectorArgument="&lt;webctrl aaname='Save &amp;amp; Close' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Save &amp;amp; Close' tag='SPAN' type='' class='pa-ez pa-db pa-fa pa-fi pa-k pa-fj pa-fk pa-fl ' check:innerText='Save &amp;amp; Close' /&gt;" Guid="37397328-45d3-4e7e-b05e-3d7d1399fd01" InformativeScreenshot="1b975427ad3602a91e5b74127aba1b95.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Case: Case - SLA: CRM GDS CPH Online - Dynamics 365' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                      </Sequence>
+                    </ActivityAction>
+                  </uix:NApplicationCard.Body>
+                  <uix:NApplicationCard.TargetApp>
+                    <uix:TargetApp Area="-16, -16, 3872, 2312" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABiSURBVDhP7cyxDYBADENRT8JIrMQytwQsRUmZM5bcOdU1FFj6VfSCZ9+qC9xxobre+//gEw/WN+5q4+pEdclH6LgEnXyEjkvQyUfouASdfISOS9DJR+i4BJ18hI5L0MmvDZhNnuSD8tzgJQAAAABJRU5ErkJggg==" InformativeScreenshot="70283c143364248e4565e1a9c8e5d204.jpg" Selector="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" Title="Queue Items All Items - Dynamics 365" />
+                  </uix:NApplicationCard.TargetApp>
+                </uix:NApplicationCard>
                 <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="450,168.8" sap2010:WorkflowViewState.IdRef="InvokeMethod_7" MethodName="Stop">
                   <InvokeMethod.TargetObject>
                     <InArgument x:TypeArguments="sd:Stopwatch">[g_swProcessingTimer]</InArgument>
                   </InvokeMethod.TargetObject>
                 </InvokeMethod>
-                <d:LogTransaction sap:VirtualizedContainerService.HintSize="416,56.8" IN_dateEndDateTime="[Now]" IN_dateStartDateTime="[in_dateCaseStartTime]" IN_intExitPoint="[g_intExitPoint]" IN_strFileName="[g_Config(&quot;SQLTransactionLogFilepath&quot;).ToString]" IN_strOutcome="Business Exception" IN_strOutcomeNotes="[in_BusinessException.Message]" IN_strTotalTime="[(Math.Round(g_swProcessingTimer.Elapsed.TotalSeconds, 2)).ToString]" IN_strTransactionID="[String.Join(&quot;, &quot;, g_arrCaseID.Where(Function(s) not String.IsNullOrEmpty(s)))]" IN_strUser="[g_Config(&quot;Username&quot;).ToString]" IN_strVersion="[g_Config(&quot;WorkPackageVersion&quot;).ToString]" IN_strWorkPackage="[g_Config(&quot;WorkPackageID&quot;).ToString]" sap2010:WorkflowViewState.IdRef="LogTransaction_2">
+                <d:LogTransaction sap:VirtualizedContainerService.HintSize="450,56.8" IN_dateEndDateTime="[Now]" IN_dateStartDateTime="[in_dateCaseStartTime]" IN_intExitPoint="[g_intExitPoint]" IN_strFileName="[g_Config(&quot;File Path - SQL Log&quot;).ToString]" IN_strOutcome="Business Exception" IN_strOutcomeNotes="[in_BusinessException.Message]" IN_strTotalTime="[(Math.Round(g_swProcessingTimer.Elapsed.TotalSeconds, 2)).ToString]" IN_strTransactionID="[String.Join(&quot;, &quot;, g_arrCaseID.Where(Function(s) not String.IsNullOrEmpty(s)))]" IN_strUser="[g_Config(&quot;Username&quot;).ToString]" IN_strVersion="[g_Config(&quot;Logging - Work Package Version&quot;).ToString]" IN_strWorkPackage="[g_Config(&quot;Logging - Work Package ID&quot;).ToString]" sap2010:WorkflowViewState.IdRef="LogTransaction_2">
                   <d:LogTransaction.IN_strMiscNotes>
                     <InArgument x:TypeArguments="x:String">
                       <Literal x:TypeArguments="x:String" DisplayName="Literal&lt;String&gt;" Value="" />
                     </InArgument>
                   </d:LogTransaction.IN_strMiscNotes>
                 </d:LogTransaction>
-                <If Condition="[Cbool(g_Config(&quot;Unattended&quot;))]" DisplayName="If - unattended" sap:VirtualizedContainerService.HintSize="416,801.6" sap2010:WorkflowViewState.IdRef="If_8">
+                <If Condition="[Cbool(g_Config(&quot;Unattended&quot;))]" DisplayName="If - unattended" sap:VirtualizedContainerService.HintSize="450,798.4" sap2010:WorkflowViewState.IdRef="If_8">
                   <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="300,81" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,90.4" sap2010:WorkflowViewState.IdRef="Sequence_29">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -439,20 +441,20 @@
                     </Sequence>
                   </If.Then>
                   <If.Else>
-                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="376,558.5" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,545.6" sap2010:WorkflowViewState.IdRef="Sequence_30">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <d:Log_Case DisplayName="Log Case - Local file" sap:VirtualizedContainerService.HintSize="334,25" IN_dateCaseEndTime="[Now]" IN_dateCaseStartTime="[in_dateCaseStartTime]" IN_dateCaseTotalTime="[(Now - in_dateCaseStartTime).ToString]" IN_strCaseID="[String.Join(&quot;, &quot;, g_arrCaseID.Where(Function(s) Not String.IsNullOrEmpty(s)))]" IN_strFilePath="[in_strWorkLogFilepath]" IN_strOutcome="Business Exception" IN_strOutcomeMessage="[in_BusinessException.Message]" IN_strUser="[g_Config(&quot;Username&quot;).ToString]" IN_strWorkpackageName="[g_Config(&quot;BusinessProcessName&quot;).ToString]" sap2010:WorkflowViewState.IdRef="Log_Case_2" in_dblCaseProcessingTime="[Math.Round(g_swProcessingTimer.Elapsed.TotalSeconds, 2)]">
+                      <d:Log_Case DisplayName="Log Case - Local file" sap:VirtualizedContainerService.HintSize="382,56.8" IN_dateCaseEndTime="[Now]" IN_dateCaseStartTime="[in_dateCaseStartTime]" IN_dateCaseTotalTime="[(Now - in_dateCaseStartTime).ToString]" IN_strCaseID="[String.Join(&quot;, &quot;, g_arrCaseID.Where(Function(s) Not String.IsNullOrEmpty(s)))]" IN_strFilePath="[in_strWorkLogFilepath]" IN_strOutcome="Business Exception" IN_strOutcomeMessage="[in_BusinessException.Message]" IN_strUser="[g_Config(&quot;Username&quot;).ToString]" IN_strWorkpackageName="[g_Config(&quot;Logging - Business Process Name&quot;).ToString]" sap2010:WorkflowViewState.IdRef="Log_Case_2" in_dblCaseProcessingTime="[Math.Round(g_swProcessingTimer.Elapsed.TotalSeconds, 2)]">
                         <d:Log_Case.IN_strNotes>
                           <InArgument x:TypeArguments="x:String">
                             <Literal x:TypeArguments="x:String" Value="" />
                           </InArgument>
                         </d:Log_Case.IN_strNotes>
                       </d:Log_Case>
-                      <d1:Generic_PopUp OUT_ProcessType="{x:Null}" OUT_strButtonSelected="{x:Null}" DisplayName="Business Exception Form" sap:VirtualizedContainerService.HintSize="334,405.6" IN_CSS_filepath="[&quot;/file://&quot; + Directory.GetCurrentDirectory + &quot;\Assets\Generic\Exception.css&quot;]" IN_ErrorMessage="The stop button was pressed" IN_PopupMessage="[&quot;&lt;h1&gt;Business Exception Encountered&lt;/h1&gt;&lt;P&gt;A Business Exception has occured during processing of '&quot;+in_BusinessException.Source+&quot;'.&lt;BR&gt;&lt;BR&gt; Error Message: &quot;+in_BusinessException.Message+&quot;&lt;BR&gt;&lt;BR&gt;More details can be found within: &quot;+in_strWorkLogFilepath+&quot;&lt;/P&gt;&lt;BR&gt;&quot;]" IN_PopupTitle="Department for Environment, Food and Rural Affairs" IN_WidthHeight="[{850,450}]" sap2010:WorkflowViewState.IdRef="Generic_PopUp_1" />
+                      <d1:Generic_PopUp OUT_ProcessType="{x:Null}" OUT_strButtonSelected="{x:Null}" DisplayName="Business Exception Form" sap:VirtualizedContainerService.HintSize="382,428.8" IN_CSS_filepath="[&quot;/file://&quot; + Directory.GetCurrentDirectory + &quot;\Assets\Generic\Exception.css&quot;]" IN_ErrorMessage="The stop button was pressed" IN_PopupMessage="[&quot;&lt;h1&gt;Business Exception Encountered&lt;/h1&gt;&lt;P&gt;A Business Exception has occured during processing of '&quot;+in_BusinessException.Source+&quot;'.&lt;BR&gt;&lt;BR&gt; Error Message: &quot;+in_BusinessException.Message+&quot;&lt;BR&gt;&lt;BR&gt;More details can be found within: &quot;+in_strWorkLogFilepath+&quot;&lt;/P&gt;&lt;BR&gt;&quot;]" IN_PopupTitle="Department for Environment, Food and Rural Affairs" IN_WidthHeight="[{850,450}]" sap2010:WorkflowViewState.IdRef="Generic_PopUp_1" />
                     </Sequence>
                   </If.Else>
                 </If>
@@ -471,7 +473,7 @@
                   <av:Point x:Key="AnnotationLocation">530,340</av:Point>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence sap2010:Annotation.AnnotationText="If a system exception occurs during the process, the transaction item's status is updated as Failed (Exception Type: Application)." DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_17">
+              <Sequence sap2010:Annotation.AnnotationText="If a system exception occurs during the process, the transaction item's status is updated as Failed (Exception Type: Application)." DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="518,4218" sap2010:WorkflowViewState.IdRef="Sequence_17">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:Boolean" Name="QueueRetry" />
                   <Variable x:TypeArguments="x:String" Name="ScreenshotPath" />
@@ -491,7 +493,7 @@
                     <InArgument x:TypeArguments="x:Boolean">[g_TransactionItem isNot Nothing AndAlso (g_TransactionItem.GetType is GetType(Uipath.Core.QueueItem))]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke RetryCurrentTransaction workflow" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Framework\RetryCurrentTransaction.xaml">
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke RetryCurrentTransaction workflow" sap:VirtualizedContainerService.HintSize="484,177.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="Framework\RetryCurrentTransaction.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InOutArgument x:TypeArguments="x:Int32" x:Key="io_RetryNumber">[io_RetryNumber]</InOutArgument>
                     <InOutArgument x:TypeArguments="x:Int32" x:Key="io_TransactionNumber">[io_TransactionNumber]</InOutArgument>
@@ -499,7 +501,55 @@
                     <InArgument x:TypeArguments="x:Boolean" x:Key="in_QueueRetry">[QueueRetry]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
-                <TryCatch sap2010:Annotation.AnnotationText="Take a screenshot of the current state of the screen to facilitate debugging." DisplayName="Try taking screenshot" sap:VirtualizedContainerService.HintSize="484,486" sap2010:WorkflowViewState.IdRef="TryCatch_13">
+                <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Queue Items All Items - Dynamics 365" sap:VirtualizedContainerService.HintSize="484,1237.2" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InUiElement="[g_BrowserCRM]" InteractionMode="DebuggerApi" OpenMode="Never" OutUiElement="[g_BrowserCRM]" ScopeGuid="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V2">
+                  <uix:NApplicationCard.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,1067.2" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:String" Name="strNote" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'SummarySummary'" sap:VirtualizedContainerService.HintSize="382,190" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=a7a81caa-48db-f011-8543-7ced8d41de08" CVScreenId="32165f0d-aa7c-44d5-b517-a0fad8b39a86" CvTextArea="227, 1130, 170, 45" CvTextArgument="Summary" CvType="Text" DesignTimeRectangle="231, 1114, 174, 113" DesignTimeScaleFactor="2.5" ElementType="ListItem" FriendlyName="'SummarySummary'" FullSelectorArgument="&lt;webctrl id='tab*' tag='LI' aaname='Summary' /&gt;" FuzzySelectorArgument="&lt;webctrl id='tab*' tag='LI' aaname='Summary' type='' class='pa-bm pa-od pa-oo pa-by pa-ct pa-cm pa-op pa-ek pa-oq pa-cd pa-k pa-bf pa-or pa-cr pa-os pa-ot pa-ou pa-ov ' check:text='SummarySummary' /&gt;" Guid="87773202-ad70-4936-b38f-924fc4f8efb7" InformativeScreenshot="7ce8f75563784db103064aa33aa60402.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'CASE MAPPING'" sap:VirtualizedContainerService.HintSize="382,190" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=f1747cd8-48db-f011-8543-7ced8d41de08" CVScreenId="3ddbcb34-1bc2-4cec-88a8-71673f9a1503" CvTextArea="605, 1272, 252, 32" CvTextArgument="CASE MAPPING" CvType="Text" DesignTimeRectangle="608, 1256, 1511, 70" DesignTimeScaleFactor="2.5" ElementType="Text" FriendlyName="'CASE MAPPING'" FullSelectorArgument="&lt;webctrl tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H2' type='' class='pa-fs pa-ec pa-oi pa-ci pa-e pa-sg pa-sh ' aaname='CASE MAPPING' check:innerText='CASE MAPPING' /&gt;" Guid="da432bf8-cbc2-40da-a754-a5438097b3ff" InformativeScreenshot="7b17a74afcb17553ac694f8d070a1dda.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                        <uix:NGetText DisplayName="Get Text 'CRM GDS CPH Online'" sap:VirtualizedContainerService.HintSize="382,190" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" TextString="[g_strCaseTitle]" Version="V3">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=f1747cd8-48db-f011-8543-7ced8d41de08" CVScreenId="7cb48de3-0854-4be4-898d-3a9ad2d7b0cd" CvTextArea="1095, 2127, 342, 32" CvType="AnyWordGroup" DesignTimeRectangle="1070, 2106, 1042, 76" DesignTimeScaleFactor="2.5" ElementType="InputBox" FriendlyName="'CRM GDS CPH Online'" FullSelectorArgument="&lt;webctrl aria-label='Case Title' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Case Title' tag='INPUT' type='text' class='fui-Input__input r12stul0 ___1ukvzui f7nlbp4 f1l02sjl f1cmbuwj fly5x3f f1pivz5x' /&gt;" Guid="feb37940-8c8a-4ebb-9d84-586b155eb7e7" ImageBase64="" InformativeScreenshot="5398eaa88eac375c5a2af57fc3ad3202.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Case: Case - SLA: CRM GDS CPH Online - Dynamics 365' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                          </uix:NGetText.Target>
+                        </uix:NGetText>
+                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'CRM GDS CPH Online' - Sys Ex" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="382,252.8" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Text="[g_strCaseTitle.replace(&quot;Robot In Progress&quot;,&quot;Robot System Exception&quot;)]" Version="V3">
+                          <uix:NTypeInto.Target>
+                            <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=f1747cd8-48db-f011-8543-7ced8d41de08" CVScreenId="7cb48de3-0854-4be4-898d-3a9ad2d7b0cd" CvTextArea="1095, 2127, 342, 32" CvTextArgument="CRM GDS CPH Online" CvType="Text" DesignTimeRectangle="1070, 2106, 1042, 76" DesignTimeScaleFactor="2.5" ElementType="InputBox" FriendlyName="'CRM GDS CPH Online'" FullSelectorArgument="&lt;webctrl aria-label='Case Title' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Case Title' tag='INPUT' type='text' class='fui-Input__input r12stul0 ___1ukvzui f7nlbp4 f1l02sjl f1cmbuwj fly5x3f f1pivz5x' aaname='CRM GDS CPH Online' /&gt;" Guid="221452d3-e5b3-4fd3-b3e5-dd18444d6285" ImageBase64="" InformativeScreenshot="ba5c4a4b4ce7a0535dced27b6d8b27c1.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Case: Case - SLA: CRM GDS CPH Online - Dynamics 365' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" />
+                          </uix:NTypeInto.Target>
+                        </uix:NTypeInto>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Save &amp; Close'" sap:VirtualizedContainerService.HintSize="382,182.8" sap2010:WorkflowViewState.IdRef="NClick_12" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;pagetype=entityrecord&amp;etn=incident&amp;id=b5825a1e-48db-f011-8543-7ced8d41de08" CVScreenId="785653e0-0b1a-4a3f-b342-b0f49e1bf6b6" CvTextArea="2250, 455, 207, 35" CvTextArgument="Save &amp; Close" CvType="Text" DesignTimeRectangle="2255, 447, 202, 53" DesignTimeScaleFactor="2.5" ElementType="Text" FriendlyName="'Save &amp; Close'" FullSelectorArgument="&lt;webctrl aaname='Save &amp;amp; Close' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Save &amp;amp; Close' tag='SPAN' type='' class='pa-ez pa-db pa-fa pa-fi pa-k pa-fj pa-fk pa-fl ' check:innerText='Save &amp;amp; Close' /&gt;" Guid="37397328-45d3-4e7e-b05e-3d7d1399fd01" InformativeScreenshot="1b975427ad3602a91e5b74127aba1b95.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Case: Case - SLA: CRM GDS CPH Online - Dynamics 365' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                      </Sequence>
+                    </ActivityAction>
+                  </uix:NApplicationCard.Body>
+                  <uix:NApplicationCard.TargetApp>
+                    <uix:TargetApp Area="-16, -16, 3872, 2312" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABiSURBVDhP7cyxDYBADENRT8JIrMQytwQsRUmZM5bcOdU1FFj6VfSCZ9+qC9xxobre+//gEw/WN+5q4+pEdclH6LgEnXyEjkvQyUfouASdfISOS9DJR+i4BJ18hI5L0MmvDZhNnuSD8tzgJQAAAABJRU5ErkJggg==" InformativeScreenshot="70283c143364248e4565e1a9c8e5d204.jpg" Selector="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" Title="Queue Items All Items - Dynamics 365" />
+                  </uix:NApplicationCard.TargetApp>
+                </uix:NApplicationCard>
+                <TryCatch sap2010:Annotation.AnnotationText="Take a screenshot of the current state of the screen to facilitate debugging." DisplayName="Try taking screenshot" sap:VirtualizedContainerService.HintSize="484,455.2" sap2010:WorkflowViewState.IdRef="TryCatch_13">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -508,9 +558,9 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <TryCatch.Try>
-                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke TakeScreenshot workflow" sap:VirtualizedContainerService.HintSize="334,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Framework\TakeScreenshot.xaml">
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke TakeScreenshot workflow" sap:VirtualizedContainerService.HintSize="334,145.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Framework\TakeScreenshot.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="x:String" x:Key="in_Folder">[g_Config("ExScreenshotsFolderPath").ToString]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_Folder">[g_Config("Folder Path - Screenshots").ToString]</InArgument>
                         <InOutArgument x:TypeArguments="x:String" x:Key="io_FilePath" />
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
@@ -532,40 +582,12 @@
                     </Catch>
                   </TryCatch.Catches>
                 </TryCatch>
-                <If sap2010:Annotation.AnnotationText="Remove this and add ReviewID asset to Orchestrator for improved speed." Condition="[not g_Config.ContainsKey(&quot;ReviewID&quot;)]" DisplayName="If &quot;Review&quot; ID not already retrieved" sap:VirtualizedContainerService.HintSize="484,558.8" sap2010:WorkflowViewState.IdRef="If_14">
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <If.Then>
-                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,331.6" sap2010:WorkflowViewState.IdRef="Sequence_43">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <de:Get_Folder_ID DisplayName="Get &quot;Review&quot; folder ID" sap:VirtualizedContainerService.HintSize="382,271.6" sap2010:WorkflowViewState.IdRef="Get_Folder_ID_2" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strFolderPath="[g_Config(&quot;Review&quot;).ToString]" out_strFolderID="[g_Config(&quot;ReviewID&quot;)]" />
-                    </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,24.8" sap2010:WorkflowViewState.IdRef="Sequence_44">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                    </Sequence>
-                  </If.Else>
-                </If>
-                <de:Move_Email DisplayName="Move Email to &quot;Review&quot; - SE" sap:VirtualizedContainerService.HintSize="484,280.4" sap2010:WorkflowViewState.IdRef="Move_Email_3" in_strBearerToken="[g_BearerToken]" in_strEmailAccount="[g_Config(&quot;AccountName&quot;).ToString]" in_strEmailID="[g_TransactionItem(&quot;EmailID&quot;).ToString]" in_strNewFolderID="[g_Config(&quot;ReviewID&quot;).ToString]" />
                 <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="484,168.8" sap2010:WorkflowViewState.IdRef="InvokeMethod_6" MethodName="Stop">
                   <InvokeMethod.TargetObject>
                     <InArgument x:TypeArguments="sd:Stopwatch">[g_swProcessingTimer]</InArgument>
                   </InvokeMethod.TargetObject>
                 </InvokeMethod>
-                <d:LogTransaction sap:VirtualizedContainerService.HintSize="484,56.8" IN_dateEndDateTime="[Now]" IN_dateStartDateTime="[in_dateCaseStartTime]" IN_intExitPoint="[g_intExitPoint]" IN_strFileName="[g_Config(&quot;SQLTransactionLogFilepath&quot;).ToString]" IN_strMiscNotes="[strLogNote]" IN_strOutcome="System Exception" IN_strOutcomeNotes="[in_SystemException.Message]" IN_strTotalTime="[(Math.Round(g_swProcessingTimer.Elapsed.TotalSeconds, 2)).ToString]" IN_strTransactionID="[String.Join(&quot;, &quot;, g_arrCaseID.Where(Function(s) not String.IsNullOrEmpty(s)))]" IN_strUser="[g_Config(&quot;Username&quot;).ToString]" IN_strVersion="[g_Config(&quot;WorkPackageVersion&quot;).ToString]" IN_strWorkPackage="[g_Config(&quot;WorkPackageID&quot;).ToString]" sap2010:WorkflowViewState.IdRef="LogTransaction_3" />
+                <d:LogTransaction sap:VirtualizedContainerService.HintSize="484,56.8" IN_dateEndDateTime="[Now]" IN_dateStartDateTime="[in_dateCaseStartTime]" IN_intExitPoint="[g_intExitPoint]" IN_strFileName="[g_Config(&quot;File Path - SQL Log&quot;).ToString]" IN_strMiscNotes="[strLogNote]" IN_strOutcome="System Exception" IN_strOutcomeNotes="[in_SystemException.Message]" IN_strTotalTime="[(Math.Round(g_swProcessingTimer.Elapsed.TotalSeconds, 2)).ToString]" IN_strTransactionID="[String.Join(&quot;, &quot;, g_arrCaseID.Where(Function(s) not String.IsNullOrEmpty(s)))]" IN_strUser="[g_Config(&quot;Username&quot;).ToString]" IN_strVersion="[g_Config(&quot;Logging - Work Package Version&quot;).ToString]" IN_strWorkPackage="[g_Config(&quot;Logging - Work Package ID&quot;).ToString]" sap2010:WorkflowViewState.IdRef="LogTransaction_3" />
                 <If Condition="[Cbool(g_Config(&quot;Unattended&quot;))]" DisplayName="If - unattended" sap:VirtualizedContainerService.HintSize="484,807.2" sap2010:WorkflowViewState.IdRef="If_10">
                   <If.Then>
                     <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,90.4" sap2010:WorkflowViewState.IdRef="Sequence_35">
@@ -583,12 +605,12 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <d:Log_Case DisplayName="Log Case - Local file" sap:VirtualizedContainerService.HintSize="382,56.8" IN_dateCaseEndTime="[Now]" IN_dateCaseStartTime="[in_dateCaseStartTime]" IN_dateCaseTotalTime="[(Now - in_dateCaseStartTime).ToString]" IN_strCaseID="[String.Join(&quot;, &quot;, g_arrCaseID.Where(Function(s) not String.IsNullOrEmpty(s)))]" IN_strFilePath="[in_strWorkLogFilepath]" IN_strNotes="[strLogNote]" IN_strOutcome="System Exception" IN_strOutcomeMessage="[in_SystemException.Message]" IN_strUser="[g_Config(&quot;Username&quot;).ToString]" IN_strWorkpackageName="[g_Config(&quot;BusinessProcessName&quot;).ToString]" sap2010:WorkflowViewState.IdRef="Log_Case_3" in_dblCaseProcessingTime="[Math.Round(g_swProcessingTimer.Elapsed.TotalSeconds, 2)]" />
-                      <d1:Generic_PopUp OUT_ProcessType="{x:Null}" OUT_strButtonSelected="{x:Null}" DisplayName="System Exception Form" sap:VirtualizedContainerService.HintSize="382,428.8" IN_CSS_filepath="[&quot;/file://&quot; + Directory.GetCurrentDirectory + &quot;\Assets\Generic\Exception.css&quot;]" IN_ErrorMessage="The stop button was pressed" IN_PopupMessage="[&quot;&lt;h1&gt;System Exception Encountered&lt;/h1&gt;&lt;P&gt;A System Exception has occured during processing.&lt;BR&gt;&lt;BR&gt;More details can be found within: &quot;+in_strWorkLogFilepath+&quot;&lt;/P&gt;&lt;BR&gt;&quot;]" IN_PopupTitle="Department for Environment, Food and Rural Affairs" IN_WidthHeight="[{600,350}]" sap2010:WorkflowViewState.IdRef="Generic_PopUp_2" />
+                      <d:Log_Case DisplayName="Log Case - Local file" sap:VirtualizedContainerService.HintSize="382,56.8" IN_dateCaseEndTime="[Now]" IN_dateCaseStartTime="[in_dateCaseStartTime]" IN_dateCaseTotalTime="[(Now - in_dateCaseStartTime).ToString]" IN_strCaseID="[String.Join(&quot;, &quot;, g_arrCaseID.Where(Function(s) not String.IsNullOrEmpty(s)))]" IN_strFilePath="[in_strWorkLogFilepath]" IN_strNotes="[strLogNote]" IN_strOutcome="System Exception" IN_strOutcomeMessage="[in_SystemException.Message]" IN_strUser="[g_Config(&quot;Username&quot;).ToString]" IN_strWorkpackageName="[g_Config(&quot;Logging - Business Process Name&quot;).ToString]" sap2010:WorkflowViewState.IdRef="Log_Case_3" in_dblCaseProcessingTime="[Math.Round(g_swProcessingTimer.Elapsed.TotalSeconds, 2)]" />
+                      <d1:Generic_PopUp OUT_ProcessType="{x:Null}" OUT_strButtonSelected="{x:Null}" DisplayName="System Exception Form" sap:VirtualizedContainerService.HintSize="382,428.8" IN_CSS_filepath="[&quot;/file://&quot; + Directory.GetCurrentDirectory + &quot;\Assets\Generic\Exception.css&quot;]" IN_ErrorMessage="The stop button was pressed" IN_PopupMessage="[&quot;&lt;h1&gt;System Exception Encountered&lt;/h1&gt;&lt;P&gt;A System Exception has occured during processing.&lt;BR&gt;&lt;BR&gt;Error Message: &quot;+in_SystemException.Message+&quot;&lt;BR&gt;&lt;BR&gt;More details can be found within: &quot;+in_strWorkLogFilepath+&quot;&lt;/P&gt;&lt;BR&gt;&quot;]" IN_PopupTitle="Department for Environment, Food and Rural Affairs" IN_WidthHeight="[{600,350}]" sap2010:WorkflowViewState.IdRef="Generic_PopUp_2" />
                     </Sequence>
                   </If.Else>
                 </If>
-                <TryCatch sap2010:Annotation.AnnotationText="Close all applications before returning to the Initialization state and opening them again.&#xA;If applications cannot be closed, kill their respective processes." DisplayName="Try closing applications" sap:VirtualizedContainerService.HintSize="484,502.4" sap2010:WorkflowViewState.IdRef="TryCatch_15">
+                <TryCatch sap2010:Annotation.AnnotationText="Close all applications before returning to the Initialization state and opening them again.&#xA;If applications cannot be closed, kill their respective processes." DisplayName="Try closing applications" sap:VirtualizedContainerService.HintSize="484,471.6" sap2010:WorkflowViewState.IdRef="TryCatch_15">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -597,7 +619,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <TryCatch.Try>
-                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CloseAllApplications workflow" sap:VirtualizedContainerService.HintSize="334,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Framework\CloseAllApplications.xaml">
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CloseAllApplications workflow" sap:VirtualizedContainerService.HintSize="334,145.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Framework\CloseAllApplications.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <scg:Dictionary x:TypeArguments="x:String, Argument" />
                       </ui:InvokeWorkflowFile.Arguments>
@@ -615,14 +637,14 @@
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="s:Exception" Name="Exception" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Close applications" sap:VirtualizedContainerService.HintSize="472,611.2" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                        <Sequence DisplayName="Close applications" sap:VirtualizedContainerService.HintSize="472,637.2" sap2010:WorkflowViewState.IdRef="Sequence_37">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <ui:LogMessage DisplayName="Log message (CloseAllApplications failed)" sap:VirtualizedContainerService.HintSize="438,175.6" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Warn" Message="[&quot;CloseAllApplications failed. &quot;+Exception.Message+&quot; at Source: &quot;+Exception.Source]" />
-                          <TryCatch DisplayName="Try killing processes" sap:VirtualizedContainerService.HintSize="438,432.4" sap2010:WorkflowViewState.IdRef="TryCatch_14">
+                          <TryCatch DisplayName="Try killing processes" sap:VirtualizedContainerService.HintSize="438,401.6" sap2010:WorkflowViewState.IdRef="TryCatch_14">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -630,7 +652,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <TryCatch.Try>
-                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke KillAllProcesses workflow" sap:VirtualizedContainerService.HintSize="334,176" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Framework\KillAllProcesses.xaml">
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke KillAllProcesses workflow" sap:VirtualizedContainerService.HintSize="334,145.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Framework\KillAllProcesses.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
                                   <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                 </ui:InvokeWorkflowFile.Arguments>
@@ -648,7 +670,7 @@
                                   <ActivityAction.Argument>
                                     <DelegateInArgument x:TypeArguments="s:Exception" Name="Exception" />
                                   </ActivityAction.Argument>
-                                  <ui:LogMessage DisplayName="Log message (KillAllProcesses failed)" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Warn" Message="[&quot;KillAllProcesses failed. &quot;+Exception.Message+&quot; at Source: &quot;+Exception.Source]" />
+                                  <ui:LogMessage DisplayName="Log message (KillAllProcesses failed)" sap:VirtualizedContainerService.HintSize="334,143.6" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Warn" Message="[&quot;KillAllProcesses failed. &quot;+Exception.Message+&quot; at Source: &quot;+Exception.Source]" />
                                 </ActivityAction>
                               </Catch>
                             </TryCatch.Catches>

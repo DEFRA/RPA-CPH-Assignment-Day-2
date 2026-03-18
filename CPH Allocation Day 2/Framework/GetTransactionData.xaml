@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="GetTransactionData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GetTransactionData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DRACOE_PopUps_64;assembly=DRACOE.PopUps.64" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Sequential counter of transaction items." Name="in_TransactionNumber" Type="InArgument(x:Int32)" />
     <x:Property Name="out_boolLastTransaction" Type="OutArgument(x:Boolean)" />
@@ -187,7 +187,7 @@
       <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;This framework is setup by default to look for an Outlook MailMessage from a config-specified mailbox, this should be changed on a work package basis with out_TransactionItem being set to a single transaction from whatever source is required.&#xA;&#xA;If there are no transaction items remaining, out_TransactionItem should be set to Nothing, which leads to the End Process state. &#xA;&#xA;out_boolLastTransaction should be set to True where it is possible to determine that a transaction is the last in the batch. If this is not possible to derive then changes will need to be made to the &quot;Final Transaction&quot; transition at the framework's parent level. " DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="1249.6000000000001,12618" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;This framework is setup by default to look for an Outlook MailMessage from a config-specified mailbox, this should be changed on a work package basis with out_TransactionItem being set to a single transaction from whatever source is required.&#xA;&#xA;If there are no transaction items remaining, out_TransactionItem should be set to Nothing, which leads to the End Process state. &#xA;&#xA;out_boolLastTransaction should be set to True where it is possible to determine that a transaction is the last in the batch. If this is not possible to derive then changes will need to be made to the &quot;Final Transaction&quot; transition at the framework's parent level. " DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="1272.8,9026" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtToProcess" />
       <Variable x:TypeArguments="x:Boolean" Name="booExists" />
@@ -200,7 +200,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="1166,12517.2" sap2010:WorkflowViewState.IdRef="Sequence_17">
+    <Sequence sap:VirtualizedContainerService.HintSize="1080,8925.2" sap2010:WorkflowViewState.IdRef="Sequence_17">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="strText" />
         <Variable x:TypeArguments="sd:DataTable" Name="datExtractedData" />
@@ -210,28 +210,32 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Queue Items All Items - Dynamics 365" sap:VirtualizedContainerService.HintSize="1132,11864.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" OutUiElement="[g_BrowserCRM]" ScopeGuid="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V2">
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Queue Items All Items - Dynamics 365" sap:VirtualizedContainerService.HintSize="1046,8272.8" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" OutUiElement="[g_BrowserCRM]" ScopeGuid="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1098,11614.8" sap2010:WorkflowViewState.IdRef="Sequence_18">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1012,8022.8" sap2010:WorkflowViewState.IdRef="Sequence_18">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If Condition="[in_TransactionNumber=1]" DisplayName="If first transaction:" sap:VirtualizedContainerService.HintSize="1064,451.6" sap2010:WorkflowViewState.IdRef="If_10">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
+              <If Condition="[in_TransactionNumber&gt;1]" DisplayName="If Transaction Number is over 1" sap:VirtualizedContainerService.HintSize="978,427.6" sap2010:WorkflowViewState.IdRef="If_18">
                 <If.Then>
-                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,90.4" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="Sequence_67">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NGoToUrl DisplayName="Go To URL - Refresh" sap:VirtualizedContainerService.HintSize="382,106" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[g_Config(&quot;URL - CRM&quot;).ToString]" Version="V3" />
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90.4" sap2010:WorkflowViewState.IdRef="Sequence_66">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -239,362 +243,11 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </Sequence>
-                </If.Then>
-                <If.Else>
-                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,190" sap2010:WorkflowViewState.IdRef="Sequence_23">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <ui:UiElementExists DisplayName="Element Exists 'CPH Allocation'" Exists="[booExists]" sap:VirtualizedContainerService.HintSize="382,130" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
-                      <ui:UiElementExists.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="50968b4f-25b7-4e06-a730-a89c8edf7a50" InformativeScreenshot="9505ba34eecb61a6fee1eba708ac6ca3" Selector="&lt;webctrl tag='INPUT' type='text' aaname='&amp;lt;CPH Allocation&amp;gt;' /&gt;" TimeoutMS="2000" WaitForReady="COMPLETE" />
-                      </ui:UiElementExists.Target>
-                    </ui:UiElementExists>
-                  </Sequence>
                 </If.Else>
               </If>
-              <If Condition="[in_TransactionNumber=1 or booExists=FALSE]" DisplayName="If first transaction or Element does not exist:" sap:VirtualizedContainerService.HintSize="1064,4903.6" sap2010:WorkflowViewState.IdRef="If_9">
-                <If.Then>
-                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="560,4491.2" sap2010:WorkflowViewState.IdRef="Sequence_20">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[booElementExists=False]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="526,1239.6" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_4" MaxIterations="6">
-                      <ui:InterruptibleDoWhile.Body>
-                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="492,1092.4" sap2010:WorkflowViewState.IdRef="Sequence_41">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="458,450.8" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="1" RetryInterval="1.00:00:00">
-                            <ui:RetryScope.ActivityBody>
-                              <ActivityAction>
-                                <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,241.2" sap2010:WorkflowViewState.IdRef="Sequence_45">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <uix:NClick ActivateBefore="{x:Null}" ClickType="Single" DelayAfter="1" DisplayName="Click Queue Filter" sap:VirtualizedContainerService.HintSize="382,181.2" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Timeout="10" Version="V3">
-                                    <uix:NClick.Target>
-                                      <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entitylist&amp;etn=queueitem&amp;viewid=2d8d408d-c255-4587-9e34-596d496e6738&amp;viewType=1039" DesignTimeRectangle="1306, 691, 80, 82" DesignTimeScaleFactor="2.5" ElementType="Button" FriendlyName="'DIV undefined_4e736f3d-…'" FullSelectorArgument="&lt;webctrl aria-role='button' tag='DIV' aria-label='Select a queue filter' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='button' tag='DIV' type='' class='pa-by pa-ie pa-ii pa-lc pa-bl pa-ld pa-bw pa-le flexbox' aaname='' /&gt;" Guid="0cc7b120-4bf7-4a72-a80b-67a5835f9903" InformativeScreenshot="75decfc9ba5ef4a5df07745c496d8f5b.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
-                                    </uix:NClick.Target>
-                                  </uix:NClick>
-                                </Sequence>
-                              </ActivityAction>
-                            </ui:RetryScope.ActivityBody>
-                            <ui:RetryScope.Condition>
-                              <ActivityFunc x:TypeArguments="x:Boolean" />
-                            </ui:RetryScope.Condition>
-                          </ui:RetryScope>
-                          <ui:UiElementExists DisplayName="Element Exists - Choice Window" Exists="[booElementExists]" sap:VirtualizedContainerService.HintSize="458,138.8" sap2010:WorkflowViewState.IdRef="UiElementExists_7">
-                            <ui:UiElementExists.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3f42ae2e-0066-4f37-84fb-c40d9f089a8d" InformativeScreenshot="a1192490ff862f232779594a2e054979" Selector="&lt;webctrl aria-role='option' tag='LI' visibleinnertext='*1st Line Visibility*' /&gt;" TimeoutMS="2000" WaitForReady="NONE" />
-                            </ui:UiElementExists.Target>
-                          </ui:UiElementExists>
-                          <If Condition="[booElementExists=True]" DisplayName="If Element Exists:" sap:VirtualizedContainerService.HintSize="458,442.8" sap2010:WorkflowViewState.IdRef="If_12">
-                            <If.Then>
-                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,190" sap2010:WorkflowViewState.IdRef="Sequence_43">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'CHP Allocation'" sap:VirtualizedContainerService.HintSize="382,130" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
-                                  <ui:Click.CursorPosition>
-                                    <ui:CursorPosition Position="Center">
-                                      <ui:CursorPosition.OffsetX>
-                                        <InArgument x:TypeArguments="x:Int32" />
-                                      </ui:CursorPosition.OffsetX>
-                                      <ui:CursorPosition.OffsetY>
-                                        <InArgument x:TypeArguments="x:Int32" />
-                                      </ui:CursorPosition.OffsetY>
-                                    </ui:CursorPosition>
-                                  </ui:Click.CursorPosition>
-                                  <ui:Click.Target>
-                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c8fdaf88-41c6-47b6-98e5-cb95b0920825" InformativeScreenshot="5efd7ab12a7394d52a7146b24c155728" Selector="&lt;webctrl aria-role='option' tag='LI' aaname='&amp;lt;CPH Allocation&amp;gt;' /&gt;" WaitForReady="COMPLETE">
-                                      <ui:Target.TimeoutMS>
-                                        <InArgument x:TypeArguments="x:Int32" />
-                                      </ui:Target.TimeoutMS>
-                                    </ui:Target>
-                                  </ui:Click.Target>
-                                </ui:Click>
-                              </Sequence>
-                            </If.Then>
-                            <If.Else>
-                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90.4" sap2010:WorkflowViewState.IdRef="Sequence_44">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                              </Sequence>
-                            </If.Else>
-                          </If>
-                        </Sequence>
-                      </ui:InterruptibleDoWhile.Body>
-                    </ui:InterruptibleDoWhile>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Edit filters'" sap:VirtualizedContainerService.HintSize="526,190" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
-                      <uix:NClick.Target>
-                        <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entitylist&amp;etn=queueitem&amp;viewid=2d8d408d-c255-4587-9e34-596d496e6738&amp;viewType=1039" CVScreenId="3e0cfd60-e6fd-40f4-a101-845c4cb567b6" CvTextArea="3067, 602, 155, 32" CvTextArgument="Edit filters" CvType="Text" DesignTimeRectangle="3001, 581, 233, 75" DesignTimeScaleFactor="2.5" FriendlyName="'Edit filtersEdit'" FullSelectorArgument="&lt;webctrl parentid='open-advanced-filter' tag='SPAN' innertext='Edit filtersEdit the view with advanced filter queries.' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='open-advanced-filter' tag='SPAN' innertext='Edit filtersEdit the view with advanced filter queries.' type='' class='ms-Button-flexContainer flexContainer-139' aaname='' check:text='Edit filtersEdit the view with advanced filter queries.' /&gt;" Guid="bcf65ae1-ef6e-4835-9680-8164b0550604" InformativeScreenshot="bc08a81a79fea4910db27d2fe9583729.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Visible" WaitForReadyArgument="Complete" />
-                      </uix:NClick.Target>
-                    </uix:NClick>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Add' 1" sap:VirtualizedContainerService.HintSize="526,190" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
-                      <uix:NClick.Target>
-                        <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entitylist&amp;etn=queueitem&amp;viewid=2d8d408d-c255-4587-9e34-596d496e6738&amp;viewType=1039" CVScreenId="d6c2a2c4-03b7-4284-88a4-f08f8cca6c6c" CvTextArea="1637, 980, 133, 45" CvTextArgument="+ Add" CvType="Text" DesignTimeRectangle="1593, 965, 280, 80" DesignTimeScaleFactor="2.5" ElementType="Button" FriendlyName="'Add'" FullSelectorArgument="&lt;webctrl id='AddMenu*' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AddMenu0' tag='BUTTON' type='button' class='ms-Button ms-Button--default ms-Button--hasMenu eb-AddMenu root-570' aaname='Add' check:innerText='&amp;#xD;&amp;#xA;Add&amp;#xD;&amp;#xA;' /&gt;" Guid="4db253c5-36f8-4dc5-a43d-0b0bd1db153c" InformativeScreenshot="9da84288f94e0f8ed059715fa92426a7.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete">
-                          <uix:TargetAnchorable.Anchors>
-                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                              <uix:Target CVScreenId="d6c2a2c4-03b7-4284-88a4-f08f8cca6c6c" CvElementArea="1587, 959, 288, 89" CvTextArea="1700, 987, 70, 35" CvTextArgument="Add" CvType="Button" DesignTimeRectangle="1705, 988, 66, 35" ElementType="Text" FriendlyName="'Add'" FullSelectorArgument="&lt;webctrl id='id__8179' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='id__8179' tag='SPAN' type='' class='ms-Button-label label-471' aaname='Add' check:innerText='Add' /&gt;" SearchSteps="FuzzySelector, CV" />
-                            </scg:List>
-                          </uix:TargetAnchorable.Anchors>
-                        </uix:TargetAnchorable>
-                      </uix:NClick.Target>
-                    </uix:NClick>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Add row' 1" sap:VirtualizedContainerService.HintSize="526,190" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
-                      <uix:NClick.Target>
-                        <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entitylist&amp;etn=queueitem&amp;viewid=2d8d408d-c255-4587-9e34-596d496e6738&amp;viewType=1039" CVScreenId="a5ca3ed6-da9e-4b86-83ab-1cb62f827651" CvTextArea="1620, 1075, 184, 30" CvTextArgument="+ Add row" CvType="Text" DesignTimeRectangle="1593, 1045, 450, 90" DesignTimeScaleFactor="2.5" ElementType="Button" FriendlyName="'Add row'" FullSelectorArgument="&lt;webctrl aria-role='menuitem' name='Add row' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='menuitem' name='Add row' tag='BUTTON' type='' class='ms-ContextualMenu-link root-585' aaname='Add row' check:innerText='&amp;#xD;&amp;#xA;Add row' /&gt;" Guid="b1ab2512-5cdc-440a-86a1-a4e220caefc9" InformativeScreenshot="78182f7c26ea390fdd4f0a765f1919b7.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V2" Visibility="Interactive">
-                          <uix:TargetAnchorable.Anchors>
-                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                              <uix:Target CVScreenId="a5ca3ed6-da9e-4b86-83ab-1cb62f827651" CvTextArea="1667, 1072, 137, 33" CvTextArgument="Add row" CvType="Text" DesignTimeRectangle="1673, 1045, 340, 90" ElementType="Text" FriendlyName="'Add row'" FullSelectorArgument="&lt;webctrl parentid='contextId' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='contextId' tag='SPAN' type='' class='ms-ContextualMenu-itemText label-401' aaname='Add row' check:innerText='Add row' /&gt;" SearchSteps="FuzzySelector, CV" />
-                            </scg:List>
-                          </uix:TargetAnchorable.Anchors>
-                        </uix:TargetAnchorable>
-                      </uix:NClick.Target>
-                    </uix:NClick>
-                    <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item - Title 1" sap:VirtualizedContainerService.HintSize="526,188" sap2010:WorkflowViewState.IdRef="SelectItem_5" Item="Title">
-                      <ui:SelectItem.Items>
-                        <scg:List x:TypeArguments="x:String" Capacity="32">
-                          <x:String>Created By</x:String>
-                          <x:String>Created By (Delegate)</x:String>
-                          <x:String>Created On</x:String>
-                          <x:String>Currency</x:String>
-                          <x:String>Date Into RPA</x:String>
-                          <x:String>Doc ID (AMD)</x:String>
-                          <x:String>Entered Queue</x:String>
-                          <x:String>Envelope ID (AMD)</x:String>
-                          <x:String>Exchange Rate</x:String>
-                          <x:String>Files in Envelope (AMD)</x:String>
-                          <x:String>Import Sequence Number</x:String>
-                          <x:String>Live workstream</x:String>
-                          <x:String>Modified By</x:String>
-                          <x:String>Modified By (Delegate)</x:String>
-                          <x:String>Modified On</x:String>
-                          <x:String>msdyn_skipursync</x:String>
-                          <x:String>Object</x:String>
-                          <x:String>QI Audit Flag</x:String>
-                          <x:String>Queue</x:String>
-                          <x:String>Queue Item</x:String>
-                          <x:String>Record Created On</x:String>
-                          <x:String>Status</x:String>
-                          <x:String>Status Reason</x:String>
-                          <x:String>Title</x:String>
-                          <x:String>Type</x:String>
-                          <x:String>Worked By</x:String>
-                          <x:String>Worked On</x:String>
-                        </scg:List>
-                      </ui:SelectItem.Items>
-                      <ui:SelectItem.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="48cc1d73-c6a6-4c0f-8b1d-9b8be06a7e65" InformativeScreenshot="1b87392dbe20eb4e63151f31c0575861" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='6' parentid='__fluentPortalMountNode' tag='DIV' /&gt;">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
-                          <ui:Target.WaitForReady>
-                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                          </ui:Target.WaitForReady>
-                        </ui:Target>
-                      </ui:SelectItem.Target>
-                    </ui:SelectItem>
-                    <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item - Contains" sap:VirtualizedContainerService.HintSize="526,188" sap2010:WorkflowViewState.IdRef="SelectItem_7" Item="Contains">
-                      <ui:SelectItem.Items>
-                        <scg:List x:TypeArguments="x:String" Capacity="16">
-                          <x:String>Equals</x:String>
-                          <x:String>Does not equal</x:String>
-                          <x:String>Contains</x:String>
-                          <x:String>Does not contain</x:String>
-                          <x:String>Begins with</x:String>
-                          <x:String>Does not begin with</x:String>
-                          <x:String>Ends with</x:String>
-                          <x:String>Does not end with</x:String>
-                          <x:String>Contains data</x:String>
-                          <x:String>Does not contain data</x:String>
-                        </scg:List>
-                      </ui:SelectItem.Items>
-                      <ui:SelectItem.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9fcd0d03-bddc-41fc-980d-44e8e1dfcc3d" InformativeScreenshot="cd61ca58803e7aba0a109eddee717e8e" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='3' parentid='__fluentPortalMountNode' tag='DIV' /&gt;">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
-                          <ui:Target.WaitForReady>
-                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                          </ui:Target.WaitForReady>
-                        </ui:Target>
-                      </ui:SelectItem.Target>
-                    </ui:SelectItem>
-                    <If Condition="[g_Config(&quot;Environment&quot;).tostring=&quot;Dev&quot;]" DisplayName="If Dev Environment:" sap:VirtualizedContainerService.HintSize="526,1055.6" sap2010:WorkflowViewState.IdRef="If_14">
-                      <If.Then>
-                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,580.4" sap2010:WorkflowViewState.IdRef="Sequence_48">
-                          <Sequence.Variables>
-                            <Variable x:TypeArguments="x:String" Name="strCaseTitle" />
-                          </Sequence.Variables>
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog - Case Title" sap:VirtualizedContainerService.HintSize="382,276.4" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Case Title" Title="Input Case Title">
-                            <ui:InputDialog.Result>
-                              <OutArgument x:TypeArguments="x:String">[strCaseTitle]</OutArgument>
-                            </ui:InputDialog.Result>
-                          </ui:InputDialog>
-                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into - CRM GDS CPH Online" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="382,244" sap2010:WorkflowViewState.IdRef="NTypeInto_8" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Text="[strCaseTitle]" Version="V3">
-                            <uix:NTypeInto.Target>
-                              <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entitylist&amp;etn=queueitem&amp;viewid=2d8d408d-c255-4587-9e34-596d496e6738&amp;viewType=1039" CVScreenId="3e70e33a-c5dd-49c8-8eb7-2dae42dfe728" CvElementArea="2802, 1300, 447, 87" CvType="InputBox" DesignTimeRectangle="2810, 1307, 436, 76" DesignTimeScaleFactor="2.5" ElementType="InputBox" FriendlyName="'Onlinw'" FullSelectorArgument="&lt;webctrl id='TextFiel*' tag='INPUT' idx='1' /&gt;" FuzzySelectorArgument="&lt;webctrl id='TextFiel*' tag='INPUT' type='text' class='ms-TextField-field field-533' aaname='' /&gt;" Guid="d2e2d9ff-8923-4cb1-8560-7b4294bfc930" InformativeScreenshot="4cc61a5d57fe8039cde4104a959c5261.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
-                            </uix:NTypeInto.Target>
-                          </uix:NTypeInto>
-                        </Sequence>
-                      </If.Then>
-                      <If.Else>
-                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,304" sap2010:WorkflowViewState.IdRef="Sequence_49">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into - CRM GDS CPH Online" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="382,244" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Text="CRM GDS CPH Online" Version="V3">
-                            <uix:NTypeInto.Target>
-                              <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entitylist&amp;etn=queueitem&amp;viewid=2d8d408d-c255-4587-9e34-596d496e6738&amp;viewType=1039" CVScreenId="3e70e33a-c5dd-49c8-8eb7-2dae42dfe728" CvElementArea="2802, 1300, 447, 87" CvType="InputBox" DesignTimeRectangle="2810, 1307, 436, 76" DesignTimeScaleFactor="2.5" ElementType="InputBox" FriendlyName="'Onlinw'" FullSelectorArgument="&lt;webctrl id='TextFiel*' tag='INPUT' idx='1' /&gt;" FuzzySelectorArgument="&lt;webctrl id='TextFiel*' tag='INPUT' type='text' class='ms-TextField-field field-533' aaname='' /&gt;" Guid="d2e2d9ff-8923-4cb1-8560-7b4294bfc930" InformativeScreenshot="4cc61a5d57fe8039cde4104a959c5261.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
-                            </uix:NTypeInto.Target>
-                          </uix:NTypeInto>
-                        </Sequence>
-                      </If.Else>
-                    </If>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Add' 2" sap:VirtualizedContainerService.HintSize="526,190" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
-                      <uix:NClick.Target>
-                        <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entitylist&amp;etn=queueitem&amp;viewid=2d8d408d-c255-4587-9e34-596d496e6738&amp;viewType=1039" CVScreenId="d6c2a2c4-03b7-4284-88a4-f08f8cca6c6c" CvTextArea="1637, 980, 133, 45" CvTextArgument="+ Add" CvType="Text" DesignTimeRectangle="1593, 965, 280, 80" DesignTimeScaleFactor="2.5" ElementType="Button" FriendlyName="'Add'" FullSelectorArgument="&lt;webctrl id='AddMenu*' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AddMenu0' tag='BUTTON' type='button' class='ms-Button ms-Button--default ms-Button--hasMenu eb-AddMenu root-570' aaname='Add' check:innerText='&amp;#xD;&amp;#xA;Add&amp;#xD;&amp;#xA;' /&gt;" Guid="4db253c5-36f8-4dc5-a43d-0b0bd1db153c" InformativeScreenshot="26a2ea548acf5172b2b5e305533c7816.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive">
-                          <uix:TargetAnchorable.Anchors>
-                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                              <uix:Target CVScreenId="d6c2a2c4-03b7-4284-88a4-f08f8cca6c6c" CvElementArea="1587, 959, 288, 89" CvTextArea="1700, 987, 70, 35" CvTextArgument="Add" CvType="Button" DesignTimeRectangle="1705, 988, 66, 35" ElementType="Text" FriendlyName="'Add'" FullSelectorArgument="&lt;webctrl id='id__8179' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='id__8179' tag='SPAN' type='' class='ms-Button-label label-471' aaname='Add' check:innerText='Add' /&gt;" SearchSteps="FuzzySelector, CV" />
-                            </scg:List>
-                          </uix:TargetAnchorable.Anchors>
-                        </uix:TargetAnchorable>
-                      </uix:NClick.Target>
-                    </uix:NClick>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Add row' 2" sap:VirtualizedContainerService.HintSize="526,190" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
-                      <uix:NClick.Target>
-                        <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entitylist&amp;etn=queueitem&amp;viewid=2d8d408d-c255-4587-9e34-596d496e6738&amp;viewType=1039" CVScreenId="a5ca3ed6-da9e-4b86-83ab-1cb62f827651" CvTextArea="1620, 1075, 184, 30" CvTextArgument="+ Add row" CvType="Text" DesignTimeRectangle="1593, 1045, 450, 90" DesignTimeScaleFactor="2.5" ElementType="Button" FriendlyName="'Add row'" FullSelectorArgument="&lt;webctrl aria-role='menuitem' name='Add row' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='menuitem' name='Add row' tag='BUTTON' type='' class='ms-ContextualMenu-link root-585' aaname='Add row' check:innerText='&amp;#xD;&amp;#xA;Add row' /&gt;" Guid="b1ab2512-5cdc-440a-86a1-a4e220caefc9" InformativeScreenshot="78182f7c26ea390fdd4f0a765f1919b7.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V2" Visibility="Interactive">
-                          <uix:TargetAnchorable.Anchors>
-                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                              <uix:Target CVScreenId="a5ca3ed6-da9e-4b86-83ab-1cb62f827651" CvTextArea="1667, 1072, 137, 33" CvTextArgument="Add row" CvType="Text" DesignTimeRectangle="1673, 1045, 340, 90" ElementType="Text" FriendlyName="'Add row'" FullSelectorArgument="&lt;webctrl parentid='contextId' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='contextId' tag='SPAN' type='' class='ms-ContextualMenu-itemText label-401' aaname='Add row' check:innerText='Add row' /&gt;" SearchSteps="FuzzySelector, CV" />
-                            </scg:List>
-                          </uix:TargetAnchorable.Anchors>
-                        </uix:TargetAnchorable>
-                      </uix:NClick.Target>
-                    </uix:NClick>
-                    <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item - Title 2" sap:VirtualizedContainerService.HintSize="526,188" sap2010:WorkflowViewState.IdRef="SelectItem_6" Item="Title">
-                      <ui:SelectItem.Items>
-                        <scg:List x:TypeArguments="x:String" Capacity="32">
-                          <x:String>Created By</x:String>
-                          <x:String>Created By (Delegate)</x:String>
-                          <x:String>Created On</x:String>
-                          <x:String>Currency</x:String>
-                          <x:String>Date Into RPA</x:String>
-                          <x:String>Doc ID (AMD)</x:String>
-                          <x:String>Entered Queue</x:String>
-                          <x:String>Envelope ID (AMD)</x:String>
-                          <x:String>Exchange Rate</x:String>
-                          <x:String>Files in Envelope (AMD)</x:String>
-                          <x:String>Import Sequence Number</x:String>
-                          <x:String>Live workstream</x:String>
-                          <x:String>Modified By</x:String>
-                          <x:String>Modified By (Delegate)</x:String>
-                          <x:String>Modified On</x:String>
-                          <x:String>msdyn_skipursync</x:String>
-                          <x:String>Object</x:String>
-                          <x:String>QI Audit Flag</x:String>
-                          <x:String>Queue</x:String>
-                          <x:String>Queue Item</x:String>
-                          <x:String>Record Created On</x:String>
-                          <x:String>Status</x:String>
-                          <x:String>Status Reason</x:String>
-                          <x:String>Title</x:String>
-                          <x:String>Type</x:String>
-                          <x:String>Worked By</x:String>
-                          <x:String>Worked On</x:String>
-                        </scg:List>
-                      </ui:SelectItem.Items>
-                      <ui:SelectItem.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="48cc1d73-c6a6-4c0f-8b1d-9b8be06a7e65" InformativeScreenshot="1b87392dbe20eb4e63151f31c0575861" Selector="&lt;webctrl aaname='' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;button&amp;gt;span&amp;gt;i' idx='3' tag='I' /&gt;">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
-                          <ui:Target.WaitForReady>
-                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                          </ui:Target.WaitForReady>
-                        </ui:Target>
-                      </ui:SelectItem.Target>
-                    </ui:SelectItem>
-                    <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item - Does not contain" sap:VirtualizedContainerService.HintSize="526,188" sap2010:WorkflowViewState.IdRef="SelectItem_8" Item="Does not contain">
-                      <ui:SelectItem.Items>
-                        <scg:List x:TypeArguments="x:String" Capacity="16">
-                          <x:String>Equals</x:String>
-                          <x:String>Does not equal</x:String>
-                          <x:String>Contains</x:String>
-                          <x:String>Does not contain</x:String>
-                          <x:String>Begins with</x:String>
-                          <x:String>Does not begin with</x:String>
-                          <x:String>Ends with</x:String>
-                          <x:String>Does not end with</x:String>
-                          <x:String>Contains data</x:String>
-                          <x:String>Does not contain data</x:String>
-                        </scg:List>
-                      </ui:SelectItem.Items>
-                      <ui:SelectItem.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7dda62a3-c542-4659-94ba-64db2c65b178" InformativeScreenshot="a3580b2cd6d66fc58f0f1defa03ded36" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='5' parentid='__fluentPortalMountNode' tag='DIV' /&gt;">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
-                          <ui:Target.WaitForReady>
-                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                          </ui:Target.WaitForReady>
-                        </ui:Target>
-                      </ui:SelectItem.Target>
-                    </ui:SelectItem>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into  - Robot" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="526,252.8" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Text="Robot" Version="V3">
-                      <uix:NTypeInto.Target>
-                        <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entitylist&amp;etn=queueitem&amp;viewid=2d8d408d-c255-4587-9e34-596d496e6738&amp;viewType=1039" CVScreenId="3e70e33a-c5dd-49c8-8eb7-2dae42dfe728" CvElementArea="2802, 1300, 447, 87" CvType="InputBox" DesignTimeRectangle="2810, 1307, 436, 76" DesignTimeScaleFactor="2.5" ElementType="InputBox" FriendlyName="'Onlinw'" FullSelectorArgument="&lt;webctrl id='TextFiel*' tag='INPUT' idx='2' /&gt;" FuzzySelectorArgument="&lt;webctrl id='TextFiel*' tag='INPUT' type='text' class='ms-TextField-field field-533' aaname='' /&gt;" Guid="d2e2d9ff-8923-4cb1-8560-7b4294bfc930" InformativeScreenshot="4cc61a5d57fe8039cde4104a959c5261.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
-                      </uix:NTypeInto.Target>
-                    </uix:NTypeInto>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Apply'" sap:VirtualizedContainerService.HintSize="526,181.2" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
-                      <uix:NClick.Target>
-                        <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entitylist&amp;etn=queueitem&amp;viewid=2d8d408d-c255-4587-9e34-596d496e6738&amp;viewType=1039" CVScreenId="a0fcc4f1-9a7d-4f87-8eab-73e51009a46c" CvElementArea="3289, 2115, 200, 87" CvTextArea="3337, 2142, 100, 42" CvTextArgument="Apply" CvType="Button" DesignTimeRectangle="3295, 2121, 193, 80" DesignTimeScaleFactor="2.5" ElementType="Button" FriendlyName="'Apply'" FullSelectorArgument="&lt;webctrl id='applyFilters' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='applyFilters' tag='BUTTON' type='button' class='pa-g pa-w pa-bw pa-dg pa-ok pa-ol pa-om pa-aw pa-fu pa-on pa-oo pa-op pa-oq pa-dq flexbox' aaname='Apply the current advanced filters' check:innerText='Apply' /&gt;" Guid="7b5a190b-c4b4-487e-b02a-5dd72401ede6" InformativeScreenshot="7f30decf3102a10cb1aad7c8f963594c.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" />
-                      </uix:NClick.Target>
-                    </uix:NClick>
-                  </Sequence>
-                </If.Then>
-                <If.Else>
-                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,241.2" sap2010:WorkflowViewState.IdRef="Sequence_21">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Refresh'" sap:VirtualizedContainerService.HintSize="382,181.2" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
-                      <uix:NClick.Target>
-                        <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entitylist&amp;etn=queueitem&amp;viewid=2d8d408d-c255-4587-9e34-596d496e6738&amp;viewType=1039" CVScreenId="c8dcf6d2-f208-4b20-ad02-b7df94ed12c5" CvTextArea="1067, 452, 117, 35" CvTextArgument="Refresh" CvType="Text" DesignTimeRectangle="983, 431, 232, 80" DesignTimeScaleFactor="2.5" ElementType="Button" FriendlyName="'Refresh'" FullSelectorArgument="&lt;webctrl aria-label='Refresh' aria-role='menuitem' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Refresh' aria-role='menuitem' tag='BUTTON' type='button' class='pa-by pa-ju pa-ll pa-ax pa-hl pa-cp pa-lt pa-er pa-lu pa-w pa-lv pa-lw pa-lx pa-ly pa-lz pa-ma pa-mb pa-mc pa-md flexbox' aaname='Refresh' check:innerText='Refresh' /&gt;" Guid="65c195a5-6574-4541-a2e5-b0c01d0eb5b1" ImageBase64="" InformativeScreenshot="0598b183eb11473f5ebc3f51d85d43e3.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" />
-                      </uix:NClick.Target>
-                    </uix:NClick>
-                  </Sequence>
-                </If.Else>
-              </If>
-              <ui:UiElementExists DisplayName="Element Exists - Case" Exists="[booExists]" sap:VirtualizedContainerService.HintSize="1064,138.8" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+              <ui:UiElementExists DisplayName="Element Exists - Case" Exists="[booExists]" sap:VirtualizedContainerService.HintSize="978,138.8" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
                 <ui:UiElementExists.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ca571daa-81ef-4dfb-b782-8504d54bbd24" InformativeScreenshot="34bef855121f7fd8121347ccb2b04076" Selector="&lt;webctrl aria-role='presentation' class='spanWrapper-*' parentid='entity_control-powerapps_onegrid_control_container' tag='SPAN' /&gt;">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ca571daa-81ef-4dfb-b782-8504d54bbd24" InformativeScreenshot="34bef855121f7fd8121347ccb2b04076" Selector="&lt;webctrl aaname='' css-selector='*' idx='2' parentid='entity_control-powerapps_onegrid_control_container' tag='I' /&gt;">
                     <ui:Target.TimeoutMS>
                       <InArgument x:TypeArguments="x:Int32" />
                     </ui:Target.TimeoutMS>
@@ -604,7 +257,7 @@
                   </ui:Target>
                 </ui:UiElementExists.Target>
               </ui:UiElementExists>
-              <If Condition="[booExists=FALSE]" DisplayName="If no entries exist:" sap:VirtualizedContainerService.HintSize="1064,6059.2" sap2010:WorkflowViewState.IdRef="If_11">
+              <If Condition="[booExists=FALSE]" DisplayName="If no entries exist:" sap:VirtualizedContainerService.HintSize="978,7394.8" sap2010:WorkflowViewState.IdRef="If_11">
                 <If.Then>
                   <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="Sequence_24">
                     <sap:WorkflowViewStateService.ViewState>
@@ -616,38 +269,85 @@
                   </Sequence>
                 </If.Then>
                 <If.Else>
-                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="1030,5722.4" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="944,7056.4" sap2010:WorkflowViewState.IdRef="Sequence_25">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="strHref" />
+                      <Variable x:TypeArguments="x:Boolean" Name="booExists" />
                     </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Check" DisplayName="Check 'LABEL'" sap:VirtualizedContainerService.HintSize="996,138.8" sap2010:WorkflowViewState.IdRef="Check_1">
-                      <ui:Check.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="20706122-a934-4daa-88f0-4b74a79e10e6" InformativeScreenshot="993cd884d77937113ea711fd43a2c72b" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;label' tag='LABEL' /&gt;">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
-                          <ui:Target.WaitForReady>
-                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                          </ui:Target.WaitForReady>
-                        </ui:Target>
-                      </ui:Check.Target>
-                    </ui:Check>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Work On'" sap:VirtualizedContainerService.HintSize="996,190" sap2010:WorkflowViewState.IdRef="NClick_20" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
-                      <uix:NClick.Target>
-                        <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entitylist&amp;etn=queueitem&amp;viewid=2d8d408d-c255-4587-9e34-596d496e6738&amp;viewType=1039" CVScreenId="0776fd9b-4d16-4a1a-bfa9-2f283fcb3380" CvTextArea="1450, 455, 140, 30" CvTextArgument="Work On" CvType="Text" DesignTimeRectangle="1367, 431, 255, 80" DesignTimeScaleFactor="2.5" ElementType="Button" FriendlyName="'Work On'" FullSelectorArgument="&lt;webctrl aria-label='Work On. Pick' aria-role='menuitem' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Work On. Pick' aria-role='menuitem' tag='BUTTON' type='button' class='pa-by pa-ju pa-ll pa-ax pa-hl pa-cp pa-lt pa-er pa-lu pa-w pa-lv pa-lw pa-lx pa-ly pa-lz pa-ma pa-mb pa-mc pa-md flexbox' aaname='Pick  Pick the items to start working on it. The items will be assigned to you.' check:innerText='Work On' /&gt;" Guid="1a16d046-d369-45cf-a80f-e1a31dc1ee6c" InformativeScreenshot="2c8d3c52f2e6a1cc81b48da0f6ea504f.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
-                      </uix:NClick.Target>
-                    </uix:NClick>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Pick'" sap:VirtualizedContainerService.HintSize="996,190" sap2010:WorkflowViewState.IdRef="NClick_21" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
-                      <uix:NClick.Target>
-                        <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entitylist&amp;etn=queueitem&amp;viewid=2d8d408d-c255-4587-9e34-596d496e6738&amp;viewType=1039" CVScreenId="2512790d-7152-4931-ae76-d4db1317b3b6" CvElementArea="2056, 1571, 248, 88" CvTextArea="2145, 1600, 70, 32" CvTextArgument="Pick" CvType="Button" DesignTimeRectangle="2062, 1578, 240, 79" DesignTimeScaleFactor="2.5" ElementType="Button" FriendlyName="'Pick'" FullSelectorArgument="&lt;webctrl parentid='dialogFooterContainer_*' tag='BUTTON' aaname='Pick' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='dialogFooterContainer_18' tag='BUTTON' type='button' class='fui-Button r1alrhcs ___1akj6hk ffp7eso f1p3nwhy f11589ue f1q5o8ev f1pdflbu f1phragk f15wkkf3 f1s2uweq fr80ssc f1ukrpxl fecsdlb f1rq72xc fnp9lpt f1h0usnq fs4ktlq f16h9ulv fx2bmrt f1d6v5y2 f1rirnrt f1uu00uk fkvaka8 f1ux7til f9a0qzu f1lkg8j3 fkc42ay fq7113v ff1wgvm fiob0tu f1j6scgf f1x4h75k f4xjyn1 fbgcvur f1ks1yx8 f1o6qegi fcnxywj fmxjhhp f9ddjv3 f17t0x8g f194v5ow f1qgg65p fk7jm04 fhgccpy f32wu9k fu5nqqq f13prjl2 f1czftr5 f1nl83rv f12k37oa fr96u23' aaname='Pick' check:innerText='Pick' /&gt;" Guid="5099d9fb-8f1c-4a2a-8275-6c4c8e88635d" InformativeScreenshot="f991b3000bb307750662d8c8e2b292f7.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
-                      </uix:NClick.Target>
-                    </uix:NClick>
-                    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[booExists=False]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="996,1076.8" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1" MaxIterations="60">
+                    <If Condition="[cbool(g_Config(&quot;Specific Case&quot;))=True]" DisplayName="If SDpecific Case is TRUE" sap:VirtualizedContainerService.HintSize="910,940.4" sap2010:WorkflowViewState.IdRef="If_15">
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,678.8" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Edit Filters" sap:VirtualizedContainerService.HintSize="382,190" sap2010:WorkflowViewState.IdRef="NClick_34" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entitylist&amp;etn=queueitem&amp;viewid=9d773757-0913-f111-8407-7c1e5277e5e8&amp;viewType=4230" CVScreenId="9b5a4957-09bd-453e-b694-22772e6a95d5" CvTextArea="3067, 627, 155, 32" CvTextArgument="Edit filters" CvType="Text" DesignTimeRectangle="3001, 606, 233, 75" DesignTimeScaleFactor="2.5" FriendlyName="'Edit filtersEdit'" FullSelectorArgument="&lt;webctrl parentid='open-advanced-filter' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='open-advanced-filter' tag='SPAN' type='' class='ms-Button-flexContainer flexContainer-138' aaname='' check:innerText='&amp;#xD;&amp;#xA;Edit filters&amp;#xD;&amp;#xA;Edit the view with advanced filter queries.' /&gt;" Guid="a6322fe4-e692-498a-b97f-a967e9688052" InformativeScreenshot="147bebdbd414fb3a39b12a7fbddf8d69.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* Dynamics 365' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <d:Generic_PopUp OUT_ProcessType="{x:Null}" OUT_strButtonSelected="{x:Null}" DisplayName="Generic PopUp - Amend Filters" sap:VirtualizedContainerService.HintSize="382,428.8" IN_CSS_filepath="[&quot;/file://&quot; + Directory.GetCurrentDirectory + &quot;\Assets\Generic\PausePoint.css&quot;]" IN_ErrorMessage="The stop button was pressed on Specific Case popup" IN_PopupMessage="Please amend the filters to show only your specificlly chosen case. &lt;br&gt;&lt;br&gt;Once only one case shows in the results please press 'Continue'." IN_PopupTitle="Select Specific Case" IN_WidthHeight="[{500,250}]" sap2010:WorkflowViewState.IdRef="Generic_PopUp_1" />
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90.4" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <If Condition="[cbool(g_Config(&quot;Pick&quot;).tostring)=TRUE]" DisplayName="If Pick is TRUE" sap:VirtualizedContainerService.HintSize="910,831.6" sap2010:WorkflowViewState.IdRef="If_17">
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,570" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:Check AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" Action="Check" DisplayName="Check 'LABEL'" sap:VirtualizedContainerService.HintSize="382,138.8" sap2010:WorkflowViewState.IdRef="Check_1">
+                            <ui:Check.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="20706122-a934-4daa-88f0-4b74a79e10e6" InformativeScreenshot="993cd884d77937113ea711fd43a2c72b" Selector="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;label' tag='LABEL' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Check.Target>
+                          </ui:Check>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Work On'" sap:VirtualizedContainerService.HintSize="382,190" sap2010:WorkflowViewState.IdRef="NClick_20" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entitylist&amp;etn=queueitem&amp;viewid=2d8d408d-c255-4587-9e34-596d496e6738&amp;viewType=1039" CVScreenId="0776fd9b-4d16-4a1a-bfa9-2f283fcb3380" CvTextArea="1450, 455, 140, 30" CvTextArgument="Work On" CvType="Text" DesignTimeRectangle="1367, 431, 255, 80" DesignTimeScaleFactor="2.5" ElementType="Button" FriendlyName="'Work On'" FullSelectorArgument="&lt;webctrl aria-label='Work On. Pick' aria-role='menuitem' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Work On. Pick' aria-role='menuitem' tag='BUTTON' type='button' class='pa-by pa-ju pa-ll pa-ax pa-hl pa-cp pa-lt pa-er pa-lu pa-w pa-lv pa-lw pa-lx pa-ly pa-lz pa-ma pa-mb pa-mc pa-md flexbox' aaname='Pick  Pick the items to start working on it. The items will be assigned to you.' check:innerText='Work On' /&gt;" Guid="1a16d046-d369-45cf-a80f-e1a31dc1ee6c" InformativeScreenshot="2c8d3c52f2e6a1cc81b48da0f6ea504f.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Pick'" sap:VirtualizedContainerService.HintSize="382,181.2" sap2010:WorkflowViewState.IdRef="NClick_21" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entitylist&amp;etn=queueitem&amp;viewid=2d8d408d-c255-4587-9e34-596d496e6738&amp;viewType=1039" CVScreenId="2512790d-7152-4931-ae76-d4db1317b3b6" CvElementArea="2056, 1571, 248, 88" CvTextArea="2145, 1600, 70, 32" CvTextArgument="Pick" CvType="Button" DesignTimeRectangle="2062, 1578, 240, 79" DesignTimeScaleFactor="2.5" ElementType="Button" FriendlyName="'Pick'" FullSelectorArgument="&lt;webctrl parentid='dialogFooterContainer_*' tag='BUTTON' aaname='Pick' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='dialogFooterContainer_18' tag='BUTTON' type='button' class='fui-Button r1alrhcs ___1akj6hk ffp7eso f1p3nwhy f11589ue f1q5o8ev f1pdflbu f1phragk f15wkkf3 f1s2uweq fr80ssc f1ukrpxl fecsdlb f1rq72xc fnp9lpt f1h0usnq fs4ktlq f16h9ulv fx2bmrt f1d6v5y2 f1rirnrt f1uu00uk fkvaka8 f1ux7til f9a0qzu f1lkg8j3 fkc42ay fq7113v ff1wgvm fiob0tu f1j6scgf f1x4h75k f4xjyn1 fbgcvur f1ks1yx8 f1o6qegi fcnxywj fmxjhhp f9ddjv3 f17t0x8g f194v5ow f1qgg65p fk7jm04 fhgccpy f32wu9k fu5nqqq f13prjl2 f1czftr5 f1nl83rv f12k37oa fr96u23' aaname='Pick' check:innerText='Pick' /&gt;" Guid="5099d9fb-8f1c-4a2a-8275-6c4c8e88635d" InformativeScreenshot="f991b3000bb307750662d8c8e2b292f7.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90.4" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[booExists=False]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="910,1076.8" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1" MaxIterations="60">
                       <ui:InterruptibleDoWhile.Body>
                         <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="876,929.6" sap2010:WorkflowViewState.IdRef="Sequence_29">
                           <Sequence.Variables>
@@ -659,9 +359,9 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'CRM GDS CPH Online'" sap:VirtualizedContainerService.HintSize="842,190" sap2010:WorkflowViewState.IdRef="NClick_22" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Timeout="1.5" Version="V3">
+                          <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'CRM GDS CPH Online'" sap:VirtualizedContainerService.HintSize="842,190" sap2010:WorkflowViewState.IdRef="NClick_33" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Timeout="1.5" Version="V3">
                             <uix:NClick.Target>
-                              <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entitylist&amp;etn=queueitem&amp;viewid=2d8d408d-c255-4587-9e34-596d496e6738&amp;viewType=1039" CVScreenId="09a71502-55c9-41fe-a713-e76054d754d9" CvTextArea="755, 930, 340, 32" CvTextArgument="CRM GDS CPH Online" CvType="Text" DesignTimeRectangle="758, 924, 337, 47" DesignTimeScaleFactor="2.5" ElementType="Text" FriendlyName="'CRM GDS CPH Online'" FullSelectorArgument="&lt;webctrl aria-role='presentation' class='spanWrapper-*' parentid='entity_control-powerapps_onegrid_control_container' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='presentation' class='spanWrapper-262' parentid='entity_control-powerapps_onegrid_control_container' tag='SPAN' type='' aaname='CRM GDS CPH Online' check:innerText='CRM GDS CPH Online' /&gt;" Guid="dcda3e2a-bf97-4051-ab3e-3afba7840fc0" InformativeScreenshot="786da26f7d560f8c7b1c1f093386febd.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                              <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entitylist&amp;etn=queueitem&amp;viewid=2d8d408d-c255-4587-9e34-596d496e6738&amp;viewType=1039" CVScreenId="09a71502-55c9-41fe-a713-e76054d754d9" CvTextArea="755, 930, 340, 32" CvTextArgument="CRM GDS CPH Online" CvType="Text" DesignTimeRectangle="758, 924, 337, 47" DesignTimeScaleFactor="2.5" ElementType="Text" FriendlyName="'CRM GDS CPH Online'" FullSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365*' /&gt;&lt;webctrl aria-role='presentation' class='spanWrapper*' parentid='*' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='presentation' class='spanWrapper-262' parentid='entity_control-powerapps_onegrid_control_container' tag='SPAN' type='' aaname='CRM GDS CPH Online' check:innerText='CRM GDS CPH Online' /&gt;" Guid="dcda3e2a-bf97-4051-ab3e-3afba7840fc0" InformativeScreenshot="786da26f7d560f8c7b1c1f093386febd.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                             </uix:NClick.Target>
                           </uix:NClick>
                           <Parallel sap:VirtualizedContainerService.HintSize="842,185.6" sap2010:WorkflowViewState.IdRef="Parallel_1">
@@ -712,47 +412,56 @@
                         </Sequence>
                       </ui:InterruptibleDoWhile.Body>
                     </ui:InterruptibleDoWhile>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'CASE MAPPING'" sap:VirtualizedContainerService.HintSize="996,190" sap2010:WorkflowViewState.IdRef="NClick_30" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'CASE MAPPING'" sap:VirtualizedContainerService.HintSize="910,190" sap2010:WorkflowViewState.IdRef="NClick_30" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=f1747cd8-48db-f011-8543-7ced8d41de08" CVScreenId="3ddbcb34-1bc2-4cec-88a8-71673f9a1503" CvTextArea="605, 1272, 252, 32" CvTextArgument="CASE MAPPING" CvType="Text" DesignTimeRectangle="608, 1256, 1511, 70" DesignTimeScaleFactor="2.5" ElementType="Text" FriendlyName="'CASE MAPPING'" FullSelectorArgument="&lt;webctrl tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H2' type='' class='pa-fs pa-ec pa-oi pa-ci pa-e pa-sg pa-sh ' aaname='CASE MAPPING' check:innerText='CASE MAPPING' /&gt;" Guid="da432bf8-cbc2-40da-a754-a5438097b3ff" InformativeScreenshot="7b17a74afcb17553ac694f8d070a1dda.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
                       </uix:NClick.Target>
                     </uix:NClick>
-                    <uix:NGetText DisplayName="Get Text 'CRM GDS CPH Online'" sap:VirtualizedContainerService.HintSize="996,190" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" TextString="[g_strCaseTitle]" Version="V3">
+                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcut - End" sap:VirtualizedContainerService.HintSize="910,211.2" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][k(end)][u(hk)]" Version="V3" />
+                    <uix:NGetText DisplayName="Get Text 'CRM GDS CPH Online'" sap:VirtualizedContainerService.HintSize="910,190" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" TextString="[g_strCaseTitle]" Version="V3">
                       <uix:NGetText.Target>
-                        <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=f1747cd8-48db-f011-8543-7ced8d41de08" CVScreenId="7cb48de3-0854-4be4-898d-3a9ad2d7b0cd" CvTextArea="1095, 2127, 342, 32" CvType="AnyWordGroup" DesignTimeRectangle="1070, 2106, 1042, 76" DesignTimeScaleFactor="2.5" ElementType="InputBox" FriendlyName="'CRM GDS CPH Online'" FullSelectorArgument="&lt;webctrl aria-label='Case Title' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Case Title' tag='INPUT' type='text' class='fui-Input__input r12stul0 ___1ukvzui f7nlbp4 f1l02sjl f1cmbuwj fly5x3f f1pivz5x' /&gt;" Guid="feb37940-8c8a-4ebb-9d84-586b155eb7e7" ImageBase64="" InformativeScreenshot="5398eaa88eac375c5a2af57fc3ad3202.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Case: Case - SLA: CRM GDS CPH Online - Dynamics 365' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                        <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=f1747cd8-48db-f011-8543-7ced8d41de08" CVScreenId="7cb48de3-0854-4be4-898d-3a9ad2d7b0cd" CvTextArea="1095, 2127, 342, 32" CvType="AnyWordGroup" DesignTimeRectangle="1070, 2106, 1042, 76" DesignTimeScaleFactor="2.5" ElementType="InputBox" FriendlyName="'CRM GDS CPH Online'" FullSelectorArgument="&lt;webctrl aria-label='Case Title' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Case Title' tag='INPUT' type='text' class='fui-Input__input r12stul0 ___1ukvzui f7nlbp4 f1l02sjl f1cmbuwj fly5x3f f1pivz5x' /&gt;" Guid="feb37940-8c8a-4ebb-9d84-586b155eb7e7" ImageBase64="" InformativeScreenshot="5398eaa88eac375c5a2af57fc3ad3202.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* Dynamics 365' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                       </uix:NGetText.Target>
                     </uix:NGetText>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'CRM GDS CPH Online'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="996,252.8" sap2010:WorkflowViewState.IdRef="NTypeInto_7" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Text="[&quot;Robot In Progress - &quot;+g_strCaseTitle]" Version="V3">
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'CRM GDS CPH Online'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="910,252.8" sap2010:WorkflowViewState.IdRef="NTypeInto_7" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Text="[&quot;Robot In Progress - &quot;+g_strCaseTitle]" Version="V3">
                       <uix:NTypeInto.Target>
-                        <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=f1747cd8-48db-f011-8543-7ced8d41de08" CVScreenId="7cb48de3-0854-4be4-898d-3a9ad2d7b0cd" CvTextArea="1095, 2127, 342, 32" CvTextArgument="CRM GDS CPH Online" CvType="Text" DesignTimeRectangle="1070, 2106, 1042, 76" DesignTimeScaleFactor="2.5" ElementType="InputBox" FriendlyName="'CRM GDS CPH Online'" FullSelectorArgument="&lt;webctrl aria-label='Case Title' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Case Title' tag='INPUT' type='text' class='fui-Input__input r12stul0 ___1ukvzui f7nlbp4 f1l02sjl f1cmbuwj fly5x3f f1pivz5x' aaname='CRM GDS CPH Online' /&gt;" Guid="221452d3-e5b3-4fd3-b3e5-dd18444d6285" ImageBase64="" InformativeScreenshot="ba5c4a4b4ce7a0535dced27b6d8b27c1.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Case: Case - SLA: CRM GDS CPH Online - Dynamics 365' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" />
+                        <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=f1747cd8-48db-f011-8543-7ced8d41de08" CVScreenId="7cb48de3-0854-4be4-898d-3a9ad2d7b0cd" CvTextArea="1095, 2127, 342, 32" CvTextArgument="CRM GDS CPH Online" CvType="Text" DesignTimeRectangle="1070, 2106, 1042, 76" DesignTimeScaleFactor="2.5" ElementType="InputBox" FriendlyName="'CRM GDS CPH Online'" FullSelectorArgument="&lt;webctrl aria-label='Case Title' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Case Title' tag='INPUT' type='text' class='fui-Input__input r12stul0 ___1ukvzui f7nlbp4 f1l02sjl f1cmbuwj fly5x3f f1pivz5x' aaname='CRM GDS CPH Online' /&gt;" Guid="221452d3-e5b3-4fd3-b3e5-dd18444d6285" ImageBase64="" InformativeScreenshot="ba5c4a4b4ce7a0535dced27b6d8b27c1.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" />
                       </uix:NTypeInto.Target>
                     </uix:NTypeInto>
-                    <uix:NGetText DisplayName="Get Text - Case Number" sap:VirtualizedContainerService.HintSize="996,190" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" TextString="[g_CRMCaseNumber]" Version="V3">
+                    <uix:NGetText DisplayName="Get Text - Case Number" sap:VirtualizedContainerService.HintSize="910,190" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" TextString="[g_CRMCaseNumber]" Version="V3">
                       <uix:NGetText.Target>
                         <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=a7a81caa-48db-f011-8543-7ced8d41de08" CVScreenId="ffeac6e8-98c5-4fae-86b1-33f6a8400f59" CvElementArea="1059, 1760, 1055, 85" CvType="InputBox" DesignTimeRectangle="1070, 1769, 1042, 76" DesignTimeScaleFactor="2.5" ElementType="InputBox" FriendlyName="'CRM-4522087-C9W6W9'" FullSelectorArgument="&lt;webctrl aria-label='Case Number' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-label='Case Number' tag='INPUT' type='text' class='fui-Input__input r12stul0 ___1ukvzui f7nlbp4 f1l02sjl f1cmbuwj fly5x3f f1pivz5x' /&gt;" Guid="059469b4-f13d-4f60-b9b3-bd0f04138d57" ImageBase64="" InformativeScreenshot="ab7769de0854677a2d36aebee55087d5.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* - Dynamics 365' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" />
                       </uix:NGetText.Target>
                     </uix:NGetText>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Save'" sap:VirtualizedContainerService.HintSize="996,190" sap2010:WorkflowViewState.IdRef="NClick_28" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Save'" sap:VirtualizedContainerService.HintSize="910,190" sap2010:WorkflowViewState.IdRef="NClick_28" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=f1747cd8-48db-f011-8543-7ced8d41de08" CVScreenId="801d9eae-fc6d-4d23-8761-66fb7369d149" CvTextArea="2165, 457, 75, 32" CvTextArgument="Save" CvType="Text" DesignTimeRectangle="2168, 447, 71, 53" DesignTimeScaleFactor="2.5" ElementType="Text" FriendlyName="'Save'" FullSelectorArgument="&lt;webctrl aaname='Save' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Save' tag='SPAN' type='' class='pa-fv pa-dr pa-me pa-bf pa-k pa-ce pa-mi pa-cn ' check:innerText='Save' /&gt;" Guid="a11e29ec-96de-4621-98cd-375e15b443b2" InformativeScreenshot="bbfb549cb6033871a87fdb1596fafa87.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Case: Case - SLA: CRM GDS CPH Online - Dynamics 365' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" />
                       </uix:NClick.Target>
                     </uix:NClick>
-                    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[booExists=False]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="996,527.2" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_3" MaxIterations="60">
+                    <Assign DisplayName="Set booExists to FALSE" sap:VirtualizedContainerService.HintSize="910,114.4" sap2010:WorkflowViewState.IdRef="Assign_15">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[booExists]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[booExists=False]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="910,527.2" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_5" MaxIterations="5">
                       <ui:InterruptibleDoWhile.Body>
-                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,380" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,380" sap2010:WorkflowViewState.IdRef="Sequence_65">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DisplayName="Click 'Activities'" sap:VirtualizedContainerService.HintSize="382,190" sap2010:WorkflowViewState.IdRef="NClick_23" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Timeout="1.5" Version="V3">
+                          <uix:NClick ActivateBefore="True" ClickType="Single" ContinueOnError="True" DelayBefore="1" DisplayName="Click 'Activities'" sap:VirtualizedContainerService.HintSize="382,190" sap2010:WorkflowViewState.IdRef="NClick_23" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Timeout="10" Version="V3">
                             <uix:NClick.Target>
                               <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=f1747cd8-48db-f011-8543-7ced8d41de08" CVScreenId="a719b4a9-c67e-49a0-b82f-eb6d3038f5e4" CvTextArea="1615, 1105, 162, 37" CvTextArgument="Activities" CvType="Text" DesignTimeRectangle="1619, 1089, 165, 113" DesignTimeScaleFactor="2.5" ElementType="ListItem" FriendlyName="'ActivitiesActivities'" FullSelectorArgument="&lt;webctrl id='tab*' tag='LI' aaname='Activities' /&gt;" FuzzySelectorArgument="&lt;webctrl id='tab*' tag='LI' aaname='Activities' type='' class='pa-bn pa-pj pa-pv pa-bz pa-cp pa-ci pa-pw pa-ee pa-px pa-ce pa-k pa-bf pa-py pa-cn pa-of pa-pz pa-qa pa-qb ' check:text='ActivitiesActivities' /&gt;" Guid="8ccf303a-3c65-4f77-be4d-7da3a49f05b5" InformativeScreenshot="1de06d0bee097e93d574c27868637a75.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Case: Case - *- Dynamics 365' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
                             </uix:NClick.Target>
                           </uix:NClick>
-                          <ui:UiElementExists DisplayName="Element Exists - Timeline" Exists="[booExists]" sap:VirtualizedContainerService.HintSize="382,130" sap2010:WorkflowViewState.IdRef="UiElementExists_5">
+                          <ui:UiElementExists DisplayName="Element Exists 'LABEL'" Exists="[booExists]" sap:VirtualizedContainerService.HintSize="382,130" sap2010:WorkflowViewState.IdRef="UiElementExists_10">
                             <ui:UiElementExists.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e8f042e0-73e3-4559-b70f-aa5a88a6ad97" InformativeScreenshot="aef51c3ecd7e463b199c9992b61cca29" Selector="&lt;webctrl aaname='Timeline' parentid='timeline_wall_container' tag='DIV' /&gt;" TimeoutMS="1500">
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3e0a95a3-1986-4e21-9ceb-fcec2cb05def" InformativeScreenshot="6008415492c29259d56b908d3eb10485" Selector="&lt;html app='msedge.exe' title='* Dynamics 365' /&gt;&lt;webctrl aaname='View more' idx='*' tag='LABEL' /&gt;" TimeoutMS="3000">
                                 <ui:Target.WaitForReady>
                                   <InArgument x:TypeArguments="ui:WaitForReady" />
                                 </ui:Target.WaitForReady>
@@ -762,71 +471,62 @@
                         </Sequence>
                       </ui:InterruptibleDoWhile.Body>
                     </ui:InterruptibleDoWhile>
-                    <uix:NCheckState DisplayName="Check App State 'Email (2)'" sap:VirtualizedContainerService.HintSize="996,756.4" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Timeout="120" Version="V3">
-                      <uix:NCheckState.IfExists>
-                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="492,505.2" sap2010:WorkflowViewState.IdRef="Sequence_52">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="458,443.6" sap2010:WorkflowViewState.IdRef="RetryScope_3" NumberOfRetries="6">
-                            <ui:RetryScope.ActivityBody>
-                              <ActivityAction>
-                                <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,241.2" sap2010:WorkflowViewState.IdRef="Sequence_51">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Email'" sap:VirtualizedContainerService.HintSize="382,181.2" sap2010:WorkflowViewState.IdRef="NClick_29" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Timeout="5" Version="V3">
-                                    <uix:NClick.Target>
-                                      <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=f1747cd8-48db-f011-8543-7ced8d41de08" DesignTimeRectangle="653, 1438, 44, 44" DesignTimeScaleFactor="2.5" FriendlyName="'SPAN'" FullSelectorArgument="&lt;webctrl tag='DIV' innertext='Email (*)' idx='*' /&gt;&lt;webctrl tag='SPAN' idx='1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='DIV' innertext='Email (*)' /&gt;&lt;webctrl tag='SPAN' type='' class='inputControl checkbox' aaname='' /&gt;" Guid="225020b5-f27e-4674-b374-3a8d2d878297" InformativeScreenshot="d0ce80cb8dac51caba6494eb2bb05eac.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*Dynamics 365' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="None" />
-                                    </uix:NClick.Target>
-                                  </uix:NClick>
-                                </Sequence>
-                              </ActivityAction>
-                            </ui:RetryScope.ActivityBody>
-                            <ui:RetryScope.Condition>
-                              <ActivityFunc x:TypeArguments="x:Boolean" />
-                            </ui:RetryScope.Condition>
-                          </ui:RetryScope>
-                        </Sequence>
-                      </uix:NCheckState.IfExists>
-                      <uix:NCheckState.IfNotExists>
-                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="Sequence_53">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                        </Sequence>
-                      </uix:NCheckState.IfNotExists>
-                      <uix:NCheckState.Target>
-                        <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=f63f6cb1-48db-f011-8543-7ced8d42afcd" CVScreenId="cb418887-2d86-4a76-8ae9-976e46991795" CvTextArea="715, 1497, 135, 40" CvTextArgument="Email (2)" CvType="Text" DesignTimeRectangle="717, 1492, 132, 47" DesignTimeScaleFactor="2.5" ElementType="Text" FriendlyName="'Email (2)'" FullSelectorArgument="&lt;webctrl aaname='Email (*)' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Email (*)' tag='SPAN' type='' class='' check:innerText='Email (2)' /&gt;" Guid="3803f7c8-d22a-4e1d-b898-df8cc1b65346" ImageBase64="" InformativeScreenshot="644ac57e9ee9587d89159b9b0ec41698.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Case: Case - SLA: Robot In Progress - SBI 115267585 - CRM GDS CPH Online - CRN 1234567891 Current - Dynamics 365' /&gt;" SearchSteps="Selector, CV" Version="V2" Visibility="Interactive" />
-                      </uix:NCheckState.Target>
-                    </uix:NCheckState>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'View more'" sap:VirtualizedContainerService.HintSize="996,190" sap2010:WorkflowViewState.IdRef="NClick_24" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'View more'" sap:VirtualizedContainerService.HintSize="910,190" sap2010:WorkflowViewState.IdRef="NClick_24" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="0c4d6e5e-6d4d-41c4-b4b4-d8a8945b84b1" Version="V3">
                       <uix:NClick.Target>
-                        <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=f1747cd8-48db-f011-8543-7ced8d41de08" CVScreenId="0ca73e3b-fc27-44f1-90e9-0331b137410a" CvElementArea="3672, 1854, 62, 60" CvTextArea="1645, 1865, 170, 32" CvTextArgument="View more" CvType="ArrowButton" DesignTimeRectangle="1650, 2047, 165, 50" DesignTimeScaleFactor="2.5" ElementType="Button" FriendlyName="'View more'" FullSelectorArgument="&lt;webctrl aaname='View more' tag='LABEL' idx='*' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='View more' tag='LABEL' type='' class='fui-Label ___1yevxz2 fk6fouc f19n0e5 fkhj508 f1i3iumi' check:text='View more' /&gt;" Guid="2a1bb858-2525-40ef-881a-60c941354dc4" InformativeScreenshot="69257f6c3b47cd8e81056573a0e2e986.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*GDS*Online*' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                        <uix:TargetAnchorable BrowserURL="https://rpa-csc-uat.crm4.dynamics.com/main.aspx?appid=27bd311b-fd95-ea11-a811-000d3ab7f90f&amp;forceUCI=1&amp;pagetype=entityrecord&amp;etn=incident&amp;id=f1747cd8-48db-f011-8543-7ced8d41de08" CVScreenId="0ca73e3b-fc27-44f1-90e9-0331b137410a" CvElementArea="3672, 1854, 62, 60" CvTextArea="1645, 1865, 170, 32" CvTextArgument="View more" CvType="ArrowButton" DesignTimeRectangle="1650, 2047, 165, 50" DesignTimeScaleFactor="2.5" ElementType="Button" FriendlyName="'View more'" FullSelectorArgument="&lt;webctrl aria-label='*GDS Online Form Sender*' innertext='*Email*' /&gt;&lt;webctrl aaname='View more' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='View more' tag='LABEL' type='' class='fui-Label ___1yevxz2 fk6fouc f19n0e5 fkhj508 f1i3iumi' check:text='View more' /&gt;" Guid="2a1bb858-2525-40ef-881a-60c941354dc4" InformativeScreenshot="69257f6c3b47cd8e81056573a0e2e986.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='*GDS*Online*' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
                       </uix:NClick.Target>
                     </uix:NClick>
-                    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="href" DisplayName="Get Attribute 'A '" sap:VirtualizedContainerService.HintSize="996,238" sap2010:WorkflowViewState.IdRef="GetAttribute_2">
-                      <ui:GetAttribute.Result>
-                        <OutArgument x:TypeArguments="x:String">[strHref]</OutArgument>
-                      </ui:GetAttribute.Result>
-                      <ui:GetAttribute.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bbcda5bd-29e8-48db-85ad-aab82f1c119e" InformativeScreenshot="51ef388b77e9ccd3059e0f81e70e6444" Selector="&lt;html app='msedge.exe' title='*- Dynamics 365' idx='*' /&gt;&lt;webctrl class='content' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='A' aaname='Download main form (CSV)' /&gt;">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
-                          <ui:Target.WaitForReady>
-                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                          </ui:Target.WaitForReady>
-                        </ui:Target>
-                      </ui:GetAttribute.Target>
-                    </ui:GetAttribute>
-                    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Edge: Your file is downloading - Forms designer" sap:VirtualizedContainerService.HintSize="996,1342.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="ec4f1c88-ef96-40a3-9a08-6ab8e3ea3d63" Version="V2">
+                    <If Condition="[g_Config(&quot;Environment&quot;).tostring=&quot;Dev&quot;]" sap:VirtualizedContainerService.HintSize="910,749.6" sap2010:WorkflowViewState.IdRef="If_16">
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,289.2" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="href" DisplayName="Get Attribute 'A '" sap:VirtualizedContainerService.HintSize="382,229.2" sap2010:WorkflowViewState.IdRef="GetAttribute_3">
+                            <ui:GetAttribute.Result>
+                              <OutArgument x:TypeArguments="x:String">[strHref]</OutArgument>
+                            </ui:GetAttribute.Result>
+                            <ui:GetAttribute.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bbcda5bd-29e8-48db-85ad-aab82f1c119e" InformativeScreenshot="51ef388b77e9ccd3059e0f81e70e6444" Selector="&lt;html app='msedge.exe' title='*- Dynamics 365' idx='*' /&gt;&lt;webctrl class='content' tag='TABLE' /&gt;&lt;webctrl aaname='*Download main form (CSV)*' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:GetAttribute.Target>
+                          </ui:GetAttribute>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,289.2" sap2010:WorkflowViewState.IdRef="Sequence_62">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="href" DisplayName="Get Attribute - Download - Live" sap:VirtualizedContainerService.HintSize="382,229.2" sap2010:WorkflowViewState.IdRef="GetAttribute_2">
+                            <ui:GetAttribute.Result>
+                              <OutArgument x:TypeArguments="x:String">[strHref]</OutArgument>
+                            </ui:GetAttribute.Result>
+                            <ui:GetAttribute.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bbcda5bd-29e8-48db-85ad-aab82f1c119e" InformativeScreenshot="51ef388b77e9ccd3059e0f81e70e6444" Selector="&lt;html app='msedge.exe' title='*Dynamics 365' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='IFRAME' /&gt;&lt;webctrl class='content' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='A' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:GetAttribute.Target>
+                          </ui:GetAttribute>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Edge: Your file is downloading - Forms designer" sap:VirtualizedContainerService.HintSize="910,1342.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="ec4f1c88-ef96-40a3-9a08-6ab8e3ea3d63" Version="V2">
                       <uix:NApplicationCard.Body>
                         <ActivityAction x:TypeArguments="x:Object">
                           <ActivityAction.Argument>
@@ -886,8 +586,8 @@
           <uix:TargetApp Area="-16, -16, 3872, 2312" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABiSURBVDhP7cyxDYBADENRT8JIrMQytwQsRUmZM5bcOdU1FFj6VfSCZ9+qC9xxobre+//gEw/WN+5q4+pEdclH6LgEnXyEjkvQyUfouASdfISOS9DJR+i4BJ18hI5L0MmvDZhNnuSD8tzgJQAAAABJRU5ErkJggg==" InformativeScreenshot="70283c143364248e4565e1a9c8e5d204.jpg" Selector="&lt;html app='msedge.exe' title='Queue Items All Items - Dynamics 365' /&gt;" Title="Queue Items All Items - Dynamics 365" Url="[g_Config(&quot;URL - CRM&quot;).ToString]" />
         </uix:NApplicationCard.TargetApp>
       </uix:NApplicationCard>
-      <ui:ReadTextFile File="{x:Null}" Content="[strText]" DisplayName="Read Text File - CSV" FileName="[&quot;C:\Users\&quot;+environment.username.tostring+&quot;\Downloads\&quot;+strfile+&quot;.csv&quot;]" sap:VirtualizedContainerService.HintSize="1132,113.2" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-      <Assign sap:VirtualizedContainerService.HintSize="1132,114.4" sap2010:WorkflowViewState.IdRef="Assign_14">
+      <ui:ReadTextFile File="{x:Null}" Content="[strText]" DisplayName="Read Text File - CSV" FileName="[&quot;C:\Users\&quot;+environment.username.tostring+&quot;\Downloads\&quot;+strfile+&quot;.csv&quot;]" sap:VirtualizedContainerService.HintSize="1046,113.2" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+      <Assign sap:VirtualizedContainerService.HintSize="1046,114.4" sap2010:WorkflowViewState.IdRef="Assign_14">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[strText]</OutArgument>
         </Assign.To>
@@ -895,8 +595,8 @@
           <InArgument x:TypeArguments="x:String">[strText.replace("contact,Title","contact,Title of second contact")]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:GenerateDataTable ColumnSeparators="{x:Null}" ColumnSizes="{x:Null}" NewLineSeparator="{x:Null}" Positions="{x:Null}" AutoDetectTypes="False" CSVParsing="True" DataTable="[datExtractedData]" DisplayName="Generate Data Table From Text - CSV" sap:VirtualizedContainerService.HintSize="1132,236" sap2010:WorkflowViewState.IdRef="GenerateDataTable_1" Input="[strText.replace(&quot;&amp;amp;&quot;,&quot;&amp;&quot;)]" UseColumnHeader="True" />
-      <Assign DisplayName="Assign Transaction Item" sap:VirtualizedContainerService.HintSize="1132,105.6" sap2010:WorkflowViewState.IdRef="Assign_13">
+      <ui:GenerateDataTable ColumnSeparators="{x:Null}" ColumnSizes="{x:Null}" NewLineSeparator="{x:Null}" Positions="{x:Null}" AutoDetectTypes="False" CSVParsing="True" DataTable="[datExtractedData]" DisplayName="Generate Data Table From Text - CSV" sap:VirtualizedContainerService.HintSize="1046,236" sap2010:WorkflowViewState.IdRef="GenerateDataTable_1" Input="[strText.replace(&quot;&amp;amp;&quot;,&quot;&amp;&quot;)]" UseColumnHeader="True" />
+      <Assign DisplayName="Assign Transaction Item" sap:VirtualizedContainerService.HintSize="1046,105.6" sap2010:WorkflowViewState.IdRef="Assign_13">
         <Assign.To>
           <OutArgument x:TypeArguments="sd:DataTable">[g_TransactionItem]</OutArgument>
         </Assign.To>

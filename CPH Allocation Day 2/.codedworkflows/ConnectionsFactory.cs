@@ -1,0 +1,3 @@
+namespace CPHAllocationDay2
+{
+}

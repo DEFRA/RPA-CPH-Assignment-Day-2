@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qjk4KXlh39tU5foouFTrxwpg3jwm1xbRqnH52MBvbdcJf3MriXe8y/sUjFZ8a5mS2VO3dqTZ4pLWXDQ+hHvQgw==",
+  "dgSpecHash": "AZibyOA4ihgbMjeq1Txv/KpoSgw/183HkSuqbq8dgM+JT6TI+LO/ES/FCzMnkG/+L8B8/aHdE311hpyT3swxZQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kl000096\\OneDrive - Defra\\UiPath Working Folder\\CPH Allocation Day 2\\.local\\",
+  "projectFilePath": "C:\\Users\\kl000096\\OneDrive - Defra\\UiPath Working Folder\\RPA-CPH-Assignment-Day-2\\CPH Allocation Day 2\\.local\\",
   "expectedPackageFiles": [
     "C:\\Users\\kl000096\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\kl000096\\.nuget\\packages\\avalonedit\\6.1.3.50\\avalonedit.6.1.3.50.nupkg.sha512",
@@ -332,7 +332,7 @@
       "code": "NU1608",
       "level": "Warning",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\kl000096\\OneDrive - Defra\\UiPath Working Folder\\CPH Allocation Day 2\\.local",
+      "filePath": "C:\\Users\\kl000096\\OneDrive - Defra\\UiPath Working Folder\\RPA-CPH-Assignment-Day-2\\CPH Allocation Day 2\\.local",
       "message": "Detected package version outside of dependency constraint: DRACOE.Logging.64 1.0.9 requires UiPath.Excel.Activities (= 2.22.3) but version UiPath.Excel.Activities 2.23.5 was resolved.",
       "libraryId": "UiPath.Excel.Activities",
       "targetGraphs": [
@@ -344,7 +344,7 @@
       "code": "NU1608",
       "level": "Warning",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\kl000096\\OneDrive - Defra\\UiPath Working Folder\\CPH Allocation Day 2\\.local",
+      "filePath": "C:\\Users\\kl000096\\OneDrive - Defra\\UiPath Working Folder\\RPA-CPH-Assignment-Day-2\\CPH Allocation Day 2\\.local",
       "message": "Detected package version outside of dependency constraint: DRACOE.Logging.64 1.0.9 requires UiPath.System.Activities (= 23.10.6) but version UiPath.System.Activities 24.10.8 was resolved.",
       "libraryId": "UiPath.System.Activities",
       "targetGraphs": [
