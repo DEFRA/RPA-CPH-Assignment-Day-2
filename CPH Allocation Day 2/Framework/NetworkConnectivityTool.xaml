@@ -79,7 +79,7 @@
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Network Connectivity Tool" sap:VirtualizedContainerService.HintSize="547.6,1974.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="Network Connectivity Tool" sap:VirtualizedContainerService.HintSize="1266.8,1807.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strZscalerStatus" />
       <Variable x:TypeArguments="x:Boolean" Name="boolNetworkOnline" />
@@ -92,7 +92,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign DisplayName="Check if Network is Connected" sap:VirtualizedContainerService.HintSize="485.6,82.4" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Check if Network is Connected" sap:VirtualizedContainerService.HintSize="485.6,114.4" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Boolean">[boolNetworkOnline]</OutArgument>
       </Assign.To>
@@ -100,12 +100,12 @@
         <InArgument x:TypeArguments="x:Boolean">[system.net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable()]</InArgument>
       </Assign.Value>
     </Assign>
-    <If Condition="[boolNetworkOnline=FALSE]" DisplayName="If network online is 'False'" sap:VirtualizedContainerService.HintSize="485.6,274.4" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[boolNetworkOnline=FALSE]" DisplayName="If network online is 'False'" sap:VirtualizedContainerService.HintSize="485.6,374.8" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Throw DisplayName="Throw BRE - No Internet Connection" Exception="[new BusinessRuleException(&quot;No internet connection.&quot;)]" sap:VirtualizedContainerService.HintSize="334,91.2" sap2010:WorkflowViewState.IdRef="Throw_1" />
       </If.Then>
       <If.Else>
-        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -114,9 +114,9 @@
         </Sequence>
       </If.Else>
     </If>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="485.6,304.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="485.6,360" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <ui:HttpClient Body="{x:Null}" ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" AuthenticationType="None" BodyFormat="application/xml" DisplayName="Ping Google - Check Internet Access" EnableSSLVerification="False" EndPoint="https://www.google.co.uk" sap:VirtualizedContainerService.HintSize="204,71.2" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="GET" Result="[strResponseContent]" StatusCode="[intResponseStatus]" TimeoutMS="5000">
+        <ui:HttpClient Body="{x:Null}" ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="ANY" AuthenticationType="None" BodyFormat="application/xml" DisplayName="Ping Google - Check Internet Access" EnableSSLVerification="False" EndPoint="https://www.google.co.uk" sap:VirtualizedContainerService.HintSize="204.8,71.2" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="GET" Result="[strResponseContent]" StatusCode="[intResponseStatus]" TimeoutMS="5000">
           <ui:HttpClient.Attachments>
             <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
           </ui:HttpClient.Attachments>
@@ -135,10 +135,10 @@
         </ui:HttpClient>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.6,22.8" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,162.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -151,15 +151,15 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:BlockUserInput BlockType="All" DisplayName="Block User Input" sap:VirtualizedContainerService.HintSize="485.6,767.6" sap2010:WorkflowViewState.IdRef="BlockUserInput_1" KeyModifiers="Alt" SpecialKey="True" TimeoutMS="30000">
+    <ui:BlockUserInput BlockType="All" DisplayName="Block User Input" sap:VirtualizedContainerService.HintSize="485.6,660.4" sap2010:WorkflowViewState.IdRef="BlockUserInput_1" KeyModifiers="Alt" SpecialKey="True" TimeoutMS="30000">
       <ui:BlockUserInput.Body>
-        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,639.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="422,500.4" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:StartProcess WorkingDirectory="{x:Null}" Arguments=" -shortcut" DisplayName="Start Process - Zscaler" FileName="C:\Program Files (x86)\Zscaler\ZSATray\ZSATray.exe" sap:VirtualizedContainerService.HintSize="388,88" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
+          <ui:StartProcess WorkingDirectory="{x:Null}" Arguments=" -shortcut" DisplayName="Start Process - Zscaler" FileName="C:\Program Files (x86)\Zscaler\ZSATray\ZSATray.exe" sap:VirtualizedContainerService.HintSize="388,120" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
           <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Full Text - Service Status" sap:VirtualizedContainerService.HintSize="388,106.8" sap2010:WorkflowViewState.IdRef="GetFullText_1">
             <ui:GetFullText.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1ac24db7-89ac-4051-a8fa-61016f72587b" InformativeScreenshot="2310f86911aec6ffa9405b1ebee52e83" Selector="&lt;wnd app='zsatray.exe' cls='HwndWrapper*' title='Zscaler Client Connector' /&gt;&lt;ctrl automationid='ZSAMFPrivateAccessTab' /&gt;&lt;ctrl automationid='ZSAMFSecureAccessTunnelStatusText' /&gt;">
